@@ -4,7 +4,7 @@
 <p align="center"> Welcome to :earth_asia: Webnux :earth_asia: , a videos streaming website where you can watch what you want when you want.</p>
  
 
-<h2 align="center">   :sunny::sunny: OBJECTIFS PROJECT:sunny::sunny: </h2>
+<h2 align="center">   :sunny::sunny: OBJECTIFS :sunny::sunny: </h2>
 
 ```python
 
