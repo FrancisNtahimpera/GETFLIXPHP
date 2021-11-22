@@ -10,10 +10,10 @@
 
     - A session system: registration, connection / disconnection.
     - Different rights: registrants have the right to comment on the content. 
-    - You can add other rights depending on the different types of users.
-    - Include a search bar and sort by filters
+    - Add other rights depending on the different types of users.
+    - Include a search bar and sort by filters.
     - Make a secure code
-    - Deploy the site. PHP is not supported by github, find free alternatives.
+    - Deploy the site.
 
 ``` 
 <h2 align="center">Languages and Tools:</h2>
