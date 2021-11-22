@@ -1,10 +1,10 @@
  
-# <h1 align="center">WEBNUX</h1>
+# <h1 align="center"> :movie_camera: WEBNUX :movie_camera: </h1>
 
 <p align="center"> Welcome to :earth_asia: Webnux :earth_asia: , a videos streaming website where you can watch what you want when you want.</p>
  
 
-<h2 align="center">  :sunny::sunny::sunny::sunny::sunny::sunny::sunny::sunny::sunny::sunny::sunny::sunny: OBJECTIFS PROJECT:sunny::sunny::sunny::sunny::sunny::sunny::sunny: :sunny::sunny: :sunny: </h2>
+<h2 align="center">   :sunny::sunny: OBJECTIFS PROJECT:sunny::sunny: </h2>
 
 ```python
 
