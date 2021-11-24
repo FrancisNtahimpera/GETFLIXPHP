@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="Ie=Edge,chrome=1">
-  <title>Getflix SIGNIN</title>
-  <meta name="generator" content="MediaWiki 1.22.5">
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../style.css">
-
-</head>
+ 
+<?php require "head.php"; ?>
+ 
 <body>
 
-  <h1>Getflix</h1>
+  <h1 class="d-flex justify-content-center align-items-center h-100">Getflix</h1>
 
   <div class="container">
-    <div class="d-flex justify-content-center">
+  <section class="vh-100 gradient-custom" >
+  <div class="container py-5 h-100" id="containerSignin">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
 
-      <div class="col-sm-8">
+            <div class="mb-md-5 mt-md-4 pb-5">
 
-        <form action="/action_page.php">
-          <div class="form-group">
-            <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email" name="email">
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <label class="form-label" for="typeEmailX">Email</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <label class="form-label" for="typePasswordX">Password</label>
+              </div>
+
+              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+
+            </div>
+
+            <div>
+              <p class="mb-0">Don't have an account? <a href="inscription.php" class="text-white-50 fw-bold">Sign Up</a></p>
+            </div>
+
           </div>
-          <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" name="password">
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        </div>
       </div>
-
     </div>
+  </div>
+</section>
+
+
 
   </div>
 
