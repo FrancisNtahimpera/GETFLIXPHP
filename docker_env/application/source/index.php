@@ -21,12 +21,12 @@
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="useremail"/>
                 <label class="form-label" for="typeEmailX">Email</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="userpsw" />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- row -->
   </div>
 </section>
 

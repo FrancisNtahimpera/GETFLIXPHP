@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
                 header("Location: inscription.php?error=thisemailisused");
                 exit();
             } else {
-                $sql = "INSERT INTO users (id, firstname, lastname, passwor, email, addres, bday)  VALUES ('0', '$firstname', '$lastname','$passw', '$email', '$address', '$bday')";
+                $sql = "INSERT INTO users (firstname, lastname, passwor, email, addres, bday)  VALUES ( '$firstname', '$lastname','$passw', '$email', '$address', '$bday')";
                 mysqli_query($conn,$sql);
                 header("Location: index.php");
                 exit();
