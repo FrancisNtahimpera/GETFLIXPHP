@@ -73,7 +73,7 @@
                         <div class="form-check">
                                 <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault"> I AGREE WITH THE TERMS <a href="url">Contract</a>     </label></br>
-                                <button type="submit" class="registerbtn d-grid gap-2 col-12 mx-auto" id="register">Register</button>
+                                <button type="submit" class="registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" id="register">Register</button>
                 </div>
     
             <div class="col-lg-12 ">

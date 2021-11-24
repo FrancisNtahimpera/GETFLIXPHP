@@ -83,15 +83,22 @@ a {
   border-color: rgb(38, 221, 93);
 }
 #containerInscription {
-  width: 70%;
-  background-color: rgba(92, 202, 202, 0.507);
+  
+   
   border-radius: 15px;
   padding: 15px;
-  margin-top: 200px;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  background-color: rgba(92, 202, 202, 0.507);
+   
+}
+#containerSignin{
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 100px;
   margin-bottom: 200px;
 }
-#titre {
-}
+ 
 .cardbody {
   width: auto;
 }
