@@ -1,13 +1,14 @@
+<?php require "signup.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
 
- <?php require "head.php"; ?>
+<?php require "head.php"; ?> 
   
 
 <body>
 
-    <form class="container" id="containerInscription" action="">
+    <form class="container" id="containerInscription"  method="post" action="">
     <h1>Register</h1>
         <div class="row">
             
@@ -17,31 +18,31 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
               
                     <label for="first-name"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter your first name" name="first-name" id="first-name" required>
+                    <input type="text" placeholder="Enter your first name" name="userfname" id="firsname" required>
 
                     <label for="last-name"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter your last name" name="last-name" id="last-name" required>
+                    <input type="text" placeholder="Enter your last name" name="userlname" id="lastname" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                    <input type="password" placeholder="Enter Password" name="userpsw" id="psw" required>
                 
                     <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                    <input type="password" placeholder="Repeat Password" name="userpswcheck" id="psw-repeat" required>
                 </div>
                 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                    <input type="text" placeholder="Enter Email" name="useremail" id="email" required>
                     
                     <label for="adress"><b>Adress</b></label>
-                    <input type="text" placeholder="Enter adress" name="adress" id="adress" required>
+                    <input type="text" placeholder="Enter adress" name="useradress" id="adress" required>
 
                     <label for="birthday"><b>Birthday</b></label>
-                    <input type="text" placeholder="Enter birthday" name="birthday" id="birthday" required>
+                    <input type="text" placeholder="Enter birthday" name="userbday" id="birthday" required>
                 </div>
                 
-                <div class="container " id="containerVisa">
+                <!-- <div class="container " id="containerVisa">
                     <div class="row container-fluid  justify-content-center" id="containerVisa">
                         <div class="col-sm-12 col-md-12">
                             <div class="card">
@@ -68,12 +69,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="  container-fluid  col-lg-12 justify-content-center"></br>
                         <div class="form-check">
                                 <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault"> I AGREE WITH THE TERMS <a href="url">Contract</a>     </label></br>
-                                <button type="submit" class="registerbtn d-grid gap-2 col-12 mx-auto" id="register">Register</button>
+                                <button type="submit" class="registerbtn d-grid gap-2 col-12 mx-auto" name="submit" id="register">Register</button>
                 </div>
     
             <div class="col-lg-12 ">

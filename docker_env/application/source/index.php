@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<?php require "head.php"; ?>
-=======
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="Ie=Edge,chrome=1">
@@ -13,7 +10,6 @@
   <link rel="stylesheet" href="../style.css">
 
 </head>
->>>>>>> 9e446acf30f08086f899bfea0cd93197561980eb
 <body>
 
   <h1>Getflix</h1>
