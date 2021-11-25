@@ -42,8 +42,8 @@
                 <label for="adress"><b>Adress</b></label>
                 <input type="text" placeholder="Enter adress" name="useradress" id="adress" required>
 
-                <label for="birthday"><b>Birthday</b></label>
-                <input type="text" placeholder="Enter birthday" name="userbday" id="birthday" required>
+                <label for="birthday"><b>Birthday</b></label><br>
+                <input type="date" placeholder="Enter birthday" name="userbday" id="birthday" value="1989-07-05" min="1930-01-01" max="2030-12-31"required>
             </div>
 
             <!-- <div class="container " id="containerVisa">
