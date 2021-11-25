@@ -1,7 +1,10 @@
-<?php 
+<?php
 
-if (isset($_POST['submit'])) {  
+if (isset($_POST['submit'])) {
     require "connection.php";
+
+    $emailerror = "";
+    $passworderror = "";
 
 
     $firstname = $_POST['userfname'];
@@ -17,25 +20,30 @@ if (isset($_POST['submit'])) {
         exit();
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("Location: ../inscription.php?error=invalidemail");
+
         exit();
     } elseif ($passw !== $passcheck) {
-        header("Location: ../inscription.php?error=passwordsnotmatching");
-        exit();
+        /*   header("Location: ../inscription.php?error=passwordsnotmatching");
+
+        exit(); */
+        $passworderror = " password are not similar";
     } else {
+
+        $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
+
+
+
         $select = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email';") or exit(mysqli_error($conn));
-            if (mysqli_num_rows($select)) {
-                header("Location: ../inscription.php?error=thisemailisused");
-                exit();
-            } else {
-                $sql = "INSERT INTO users (firstname, lastname, passwor, email, addres, bday)  VALUES ( '$firstname', '$lastname','$passw', '$email', '$address', '$bday')";
-                mysqli_query($conn,$sql);
-                header("Location: ../index.php");
-                exit();
-            }
-    
+        if (mysqli_num_rows($select)) {
+            /*  header("Location: ../inscription.php?error=thisemailisused");
+
+            exit(); */
+            $emailerror = " this email already exist";
+        } else {
+            $sql = "INSERT INTO users (firstname, lastname, passwor, email, addres, bday)  VALUES ( '$firstname', '$lastname','$hashed_password', '$email', '$address', '$bday')";
+            mysqli_query($conn, $sql);
+            header("Location: ../index.php");
+            exit();
+        }
     }
-    
-
 }
-
-
