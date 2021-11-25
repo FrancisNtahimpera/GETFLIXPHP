@@ -6,6 +6,9 @@
 -- Generation Time: Nov 24, 2021 at 03:28 PM
 -- Server version: 10.4.2-MariaDB-1:10.4.2+maria~bionic
 -- PHP Version: 7.2.5
+CREATE DATABASE IF NOT EXISTS getflix;
+USE getflix;
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
