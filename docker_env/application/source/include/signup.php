@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submitup'])) {
     require "connection.php";
 
     $emailerror = "";
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         } else {
             $sql = "INSERT INTO users (firstname, lastname, passwor, email, addres, bday)  VALUES ( '$firstname', '$lastname','$hashed_password', '$email', '$address', '$bday')";
             mysqli_query($conn, $sql);
-            header("Location: ../testlogin.php");
+            header("Location: ../index.php");
             exit();
         }
     }

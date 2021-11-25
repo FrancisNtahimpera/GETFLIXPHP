@@ -131,7 +131,7 @@ transform:translateY(0);
         
   </ul>
     </div>
-  </div><?php require "testlogin.php"; ?>
+  </div>
 </nav>
 <main id="main">
   <div class="movie">

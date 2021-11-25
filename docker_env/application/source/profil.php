@@ -4,7 +4,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Getflix</a>
+    <a class="navbar-brand" href="./accueil.php">Getflix</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,13 +40,13 @@
           <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="inscription.php">SignUp</a>
+          <a class="nav-link active" href="./inscription.php">SignUp</a>
           
         </li>
         
   </ul>
     </div>
-  </div><?php require "testlogin.php"; ?>
+  </div>
 </nav>
 <form class="container" id="containerProfil"  method="post" action="">
     <h1>PROFIL</h1>
@@ -83,34 +83,7 @@
                     <input class="border rounded"  type="text" placeholder="Enter birthday" name="userbday" id="birthday" required>
                 </div>
                 
-                <!-- <div class="container " id="containerVisa">
-                    <div class="row container-fluid  justify-content-center" id="containerVisa">
-                        <div class="col-sm-12 col-md-12">
-                            <div class="card">
-                                <div class="card-header ">
-                                    <div class="row">
-                                        <div class="col-md-6"> <span>CREDIT/DEBIT CARD PAYMENT</span> </div>
-                                        <div class="col-md-6 text-right" style="margin-top: -5px;"> <img src="https://img.icons8.com/color/36/000000/visa.png"> <img src="https://img.icons8.com/color/36/000000/mastercard.png">  </div>
-                                    </div>
-                                </div>
-                                <div class="card-body col-lg-12" style="height: 350px">
-                                    <div class="form-group"> <label for="cc-number" class="control-label">CARD NUMBER</label> 
-                                        <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$" required> </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> 
-                                                <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" pattern="(?:0[1-9]|1[0-2])/[0-9]{2}" required> </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> 
-                                                <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" pattern="^[0-9]{3, 4}$" required> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label> <input type="text" class="input-lg form-control"> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                
                     <div class="  container-fluid  col-lg-12 justify-content-center"></br>
                         
                             <button type="submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" id="register">MODIFIER</button>
