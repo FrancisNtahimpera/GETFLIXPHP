@@ -2,7 +2,6 @@
 <?php require "./include/signup.php" ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,16 +12,22 @@
 </head>
 
 <body>
-  </br></br></br>
+  </br></br>
   <div class="container">
     <div class="row">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModale1">
-        Sign In
-      </button>
-      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModale2">
-        Sign Up
-      </button>
+      <div class="container-fluid d-flex justify-content-end">
+        <div>
+          <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale1">
+            Sign In
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale2">
+            Sign Up
+          </button>
+        </div>
+      </div>
 
       
 
@@ -36,19 +41,19 @@
               <div class="card bg-transparent container-fluid" style="border-radius: 1rem;">
 
 
-                <div class="mb-md-5 mt-md-4 pb-5 bg-transparent">
+                <div class="mb-md-5 mt-md-4 pb-5 bg-transparent text-white">
 
-                  <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                  <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                  <h2 class="fw-bold mb-2 text-uppercase ">Sign In your account</h2>
+                  <p class="text-white-50 mb-5">Please enter your email and password!</p>
 
                   <div class="form-outline form-white mb-4">
+                    <label class="form-label" for="typeEmailX">Email:</label>
                     <input type="email" id="typeEmailX" class="form-control form-control-lg" name="useremail" />
-                    <label class="form-label" for="typeEmailX">Email</label>
                   </div>
 
                   <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Password:</label>
                     <input type="password" id="typePasswordX" class="form-control form-control-lg" name="userpsw" />
-                    <label class="form-label" for="typePasswordX">Password</label>
                   </div>
 
                   <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
@@ -75,67 +80,58 @@
             <div class="modal-content bg-dark">
 
 
-              <div class="card bg-transparent container-fluid" style="border-radius: 1rem;">
+                <div class="card bg-transparent container-fluid" style="border-radius: 1rem;">
 
 
-                <div class="mb-md-5 mt-md-4 pb-5 bg-transparent">
+                  <div class="mb-md-5 mt-md-4 pb-5 bg-transparent">
 
-                <h1>Register</h1>
-        <div class="row">
+                    <h1>Register</h1>
+                      <div class="row">
 
+                        <div class="col-lg-6 col-md-6 col-sm-12">
 
+                            <label for="first-name"><b>First Name</b></label>
+                            <input type="text" placeholder="Enter your first name" name="userfname" id="firsname" required>
 
+                            <label for="last-name"><b>Last Name</b></label>
+                            <input type="text" placeholder="Enter your last name" name="userlname" id="lastname" required>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="userpsw" id="psw" required>
 
-                <label for="first-name"><b>First Name</b></label>
-                <input type="text" placeholder="Enter your first name" name="userfname" id="firsname" required>
+                            <label for="psw-repeat"><b>Repeat Password</b></label><?php echo $passworderror; ?></span>
+                            <input type="password" placeholder="Repeat Password" name="userpswcheck" id="psw-repeat" required>
+                            <span class="error">
+                        </div>
 
-                <label for="last-name"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter your last name" name="userlname" id="lastname" required>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="userpsw" id="psw" required>
-
-                <label for="psw-repeat"><b>Repeat Password</b></label><?php echo $passworderror; ?></span>
-                <input type="password" placeholder="Repeat Password" name="userpswcheck" id="psw-repeat" required>
-                <span class="error">
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12">
-
-                <label for="email"><b>Email</b></label><span class="error"><?php echo $emailerror; ?></span>
-                <input type="text" placeholder="Enter Email" name="useremail" id="email" required>
+                            <label for="email"><b>Email</b></label><span class="error"><?php echo $emailerror; ?></span>
+                            <input type="text" placeholder="Enter Email" name="useremail" id="email" required>
 
 
-                <label for="adress"><b>Adress</b></label>
-                <input type="text" placeholder="Enter adress" name="useradress" id="adress" required>
+                            <label for="adress"><b>Adress</b></label>
+                            <input type="text" placeholder="Enter adress" name="useradress" id="adress" required>
 
-                <label for="birthday"><b>Birthday</b></label><br>
-                <input type="date" placeholder="Enter birthday" name="userbday" id="birthday" value="1989-07-05" min="1930-01-01" max="2030-12-31"required>
-            </div>
+                            <label for="birthday"><b>Birthday</b></label><br>
+                            <input type="date" placeholder="Enter birthday" name="userbday" id="birthday" value="1989-07-05" min="1930-01-01" max="2030-12-31"required>
+                        </div>
 
-            
-            <div class="  container-fluid  col-lg-12 justify-content-center"></br>
-                <div class="form-check">
-                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"> I AGREE WITH THE TERMS <a href="url">Contract</a> </label></br>
-                    <button type="submit" name="submitup" class="registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" id="register">Register</button>
+                        
+                        <div class="  container-fluid  col-lg-12 justify-content-center"></br>
+                            <div class="form-check">
+                                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault"> I AGREE WITH THE TERMS <a href="url">Contract</a> </label></br>
+                                <button type="submit" name="submitup" class="registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" id="register">Register</button>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <p>Already have an account? <a data-target="#exampleModale1" href="login.php">Sign in</a>.</p>
+                            </div>
+                      </div>
+                    </div>
+
                 </div>
-
-                <div class="col-lg-12 ">
-                    <p>Already have an account? <a href="index.php">Sign in</a>.</p>
-                </div>
-            </div>
-        </div>
-
-        </div>
-
-
-
-
-
-
               </div>
             </div>
 
