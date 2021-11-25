@@ -47,11 +47,10 @@ if (isset($_POST['submit'])) {
 
 
                 if ($row['email'] === $username) {
-
                     $_SESSION['firstname'] = $row['firstname'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
-                    header("Location: ../accueil.php");
+                    header("Location: ../accueil.php?id=");
                     exit();
                 } else {
                     echo " invalid email";
