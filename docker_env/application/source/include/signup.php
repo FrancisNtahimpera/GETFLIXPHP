@@ -42,7 +42,7 @@ if (isset($_POST['submitup'])) {
         } else {
             $sql = "INSERT INTO users (firstname, lastname, passwor, email, addres, bday)  VALUES ( '$firstname', '$lastname','$hashed_password', '$email', '$address', '$bday')";
             mysqli_query($conn, $sql);
-            header("Location: ../index.php");
+            header("Location: ../login.php");
             exit();
         }
     }
