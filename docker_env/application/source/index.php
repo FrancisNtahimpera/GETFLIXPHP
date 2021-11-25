@@ -3,6 +3,8 @@
  
 <?php require "head.php"; ?>
  
+<?php require "include/signup.php"; ?>
+ 
 <body>
 
   <h1 class="d-flex justify-content-center align-items-center h-100">Getflix</h1>

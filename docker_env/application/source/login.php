@@ -1,11 +1,11 @@
 <?php require "connection.php"; ?>
 <?php 
 
-if ($_POST['userpsw']) AND ($_POST['useremail']){
+if (($_POST['userpsw']) AND ($_POST['useremail'])){
     
 
 }else{
-    echo 'veuillez remplir tousles champs';
+    echo 'veuillez remplir tous les champs';
 }
 
 ?>

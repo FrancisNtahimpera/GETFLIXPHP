@@ -1,4 +1,6 @@
 <?php require "./include/signup.php" ?>
+ 
+ 
 <!DOCTYPE html>
 <html lang="en">
 

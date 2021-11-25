@@ -2,7 +2,72 @@
 <html lang="en">
 <?php require "head.php" ?>
 <link rel="stylesheet" href=" css/style.css">
+<link rel="stylesheet" href="style.css">
 <body>
+  <style>
+    #main{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.movie {
+  width:300px;
+  margin:1rem;
+  border-radius: 3px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0.1);
+  background-color: rgba(92, 202, 202, 0.307);
+  position:relative;
+  overflow:hidden;
+
+}
+.movie img{
+  width: 100%;
+
+}
+.movie-info{
+  color : white;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3{
+  margin-top:0;
+}
+.movie-info span{
+  background-color: darkgreen;
+  padding: 0.25rem 0.5rem;
+  border-radius:10px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0.1);
+  font-weight: bold;
+}
+.movie-info span.green{
+  background-color: darkgreen;
+  padding: 0.25rem 0.5rem;
+  border-radius:10px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0.1);
+  font-weight: bold;
+}
+.overview{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: #fff;
+  padding: 1rem;
+  max-height: 100%;
+  transform:translateY(+200%);
+  transition:transform 0.4s ease-in;
+
+}
+.movie:hover .overview{
+
+transform:translateY(0);
+}
+
+  </style>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Getflix</a>
@@ -44,7 +109,7 @@
         </button>
       </div>
       <div class="modal-body">
-        hey [nom de l'utilisateur] Voulez-vous vraiment nous quitter ?
+        hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
@@ -68,7 +133,114 @@
     </div>
   </div><?php require "testlogin.php"; ?>
 </nav>
+<main id="main">
+  <div class="movie">
+    <img src="caroussel/img/6.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
 
+    <div class="overview">
+      <h3>overview</h3>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+      Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+      Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+    </div>
+  </div> 
+  <div class="movie">
+    <img src="caroussel/img/1.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
+
+<div class="overview">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+</div>
+  </div> 
+  <div class="movie">
+    <img src="caroussel/img/3.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
+
+<div class="overview">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+</div>
+  </div> 
+</main>
+<script>
+//API
+//------------------------ creation des const de l'url-------------------------------
+const API_KEY = 'api_key=92a6e3e8847a6472bbf29ab8fa36f02c';
+const BASE_URL = 'https://api.themoviedb.org/3/';
+const API_URL= BASE_URL + 'discover/movie?sort_by=popularity.desc&'+ API_KEY;
+const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
+
+const main = document.getElementById('main');
+//------------------fonction de recuperation des infos de l'API--------------------
+getMovies(API_URL);
+
+function getMovies(url){
+  fetch(url).then(res => res.json()).then(data => {
     
+    showMovies(data.results);
+    console.log(data.results);
+  })
+}
+//------------------fonction d'affichage des infos de l'API--------------------
+function showMovies(data){
+  main.innerHTML= ' ';
+
+  data.forEach(movie => {
+     
+
+    const {title, poster_path, vote_average, overview} = movie;
+
+    //creation de la div
+    const movieEl = document.createElement('div');
+    //creation de la classe
+    movieEl.classList.add('movie');
+    movieEl.innerHTML = `
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="bg-${getColor(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="overview  bg-success  rounded text-light">
+                <h3 >Résumé</h3>
+                ${overview}
+                <br/> 
+                <button class="know-more btn btn-dark">  Know More</button
+            </div>
+        
+         `;
+
+      main.appendChild(movieEl);
+    
+  });
+
+}
+
+function getColor (vote){
+  if(vote>= 8){
+    return ' ';
+
+  }else if(vote>=7){
+    return 'warning';
+  }else{
+    return'danger';
+  }
+}
+
+
+</script>
+     
 </body>
 </html>

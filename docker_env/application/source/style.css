@@ -108,3 +108,16 @@ a {
   margin: auto;
   
 }
+/* CSS page ou l'on retrouve tous les films */
+#main{
+  display:flex;
+  flex-wrap:wrap;
+}
+.movie {
+  width:300px;
+
+}
+.movie img{
+  width: 100%;
+
+}
