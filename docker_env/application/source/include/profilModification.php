@@ -59,23 +59,16 @@ if (isset($_POST['submitemail'])) {
 
 
 
+
+
+
+
+
+
+
+        $_SESSION['email'] = $_POST["newmail"];
+
         header("Refresh:0");
-
-        session_start();
-        require "connection.php";
-        require "clientinfo.php";
-        $sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
-        $result = mysqli_query($conn, $sql);
-
-
-
-
-
-
-
-
-
-        $bademail = $_SESSION['email'];
     } else {
         $message = "Current mail is not correct";
     }
