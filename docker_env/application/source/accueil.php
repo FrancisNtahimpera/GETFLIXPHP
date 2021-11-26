@@ -66,7 +66,36 @@
 
 transform:translateY(0);
 }
+/* .section{
+  padding:4.5rem 0 1.5rem;
+}
+.conatiner{
+  width:100%;
+  min-height:640px;
+  position:relative;
+  display: flex;
+  align-items:center;
+  background:rgb(23,7,0..4,);
 
+
+}
+.conatiner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  
+
+}
+.swiper-pagination-bullet{
+  width: 6px !important;
+  heigth:6px !important;
+  border-radius: 0.2rem !important;
+  background : black;
+  opacity:1;
+
+
+} */
   </style>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
@@ -133,6 +162,45 @@ transform:translateY(0);
     </div>
   </div>
 </nav>
+  <section class="home swiper" id="home">
+    <!-- Swiper -->
+    <div class="swiper-wrapper ">
+      <div class="swiper-slide conatiner ">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let Thfere carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+      <div class="swiper-slide conatiner">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg""  alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let There carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+      <div class="swiper-slide conatiner">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg"" alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let There carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+    </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
 <main id="main">
   <div class="movie">
     <img src="caroussel/img/6.jpg" alt="image">
@@ -201,7 +269,7 @@ function showMovies(data){
   data.forEach(movie => {
      
 
-    const {title, poster_path, vote_average, overview} = movie;
+    const {title, poster_path, vote_average, overview, release_date , original_language } = movie;
 
     //creation de la div
     const movieEl = document.createElement('div');
@@ -210,13 +278,17 @@ function showMovies(data){
     movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
             <div class="movie-info">
+            
                 <h3>${title}</h3>
                 <span class="bg-${getColor(vote_average)}">${vote_average}</span>
             </div>
+            ${original_language}
             <div class="overview  bg-success  rounded text-light">
+            
                 <h3 >Résumé</h3>
                 ${overview}
                 <br/> 
+                <div class="dateRelease" >${release_date}</div>
                 <button class="know-more btn btn-dark">  Know More</button
             </div>
         
@@ -228,7 +300,7 @@ function showMovies(data){
 
 }
 
-function getColor (vote){
+function getColor(vote){
   if(vote>= 8){
     return ' ';
 
@@ -238,9 +310,34 @@ function getColor (vote){
     return'danger';
   }
 }
+</script>
+<script>
 
+var swiper = new Swiper(".home", {
+  spaceBetween : 30,
+  centeredSlides:true,
+  autoPlay: {
+    delay:2500,
+    disableOnInteraction: false,
+  },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: "true",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
 
 </script>
+<!-- LINK TO SWiper -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script
      
 </body>
 </html>
