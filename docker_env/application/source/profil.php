@@ -1,89 +1,165 @@
+<?php require "./include/profilsetup.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
+
+<script type="text/javascript">
+  function showForm() {
+    var text = document.getElementById("formpassword");
+    if (text.style.display === "none") {
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
+</script>
+
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Getflix</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorie
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Thriller</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Science Fiction</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Horror</a></li>
-            <li><hr class="dropdown-divider"></li>
-          </ul>
-        </li>
-         
-      </ul>
-      <form class="d-flex">
-        <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">FIND</button>
-      </form>
-      <ul  l class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="inscription.php">SignUp</a>
-          
-        </li>
-        
-  </ul>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="accueil.php">Getflix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorie
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Thriller</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Science Fiction</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Horror</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+        <form class="d-flex">
+          <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">FIND</button>
+        </form>
+
+
+
+
+      </div>
     </div>
-  </div><?php require "testlogin.php"; ?>
-</nav>
-<form class="container" id="containerProfil"  method="post" action="">
-    <h1>PROFIL</h1>
-    
-        <div class="row ">
-            
-           
-            
-            
-                <div class="col-lg-6 col-md-6 col-sm-12 ">
-              
-                    <label for="first-name"><b>First Name</b></label>
-                    <input class="border rounded" type="text" placeholder="Enter your first name" name="userfname" id="firsname" required>
-
-                    <label for="last-name"><b>Last Name</b></label>
-                    <input class="border rounded"  type="text" placeholder="Enter your last name" name="userlname" id="lastname" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input class="border rounded"  type="password" placeholder="Enter Password" name="userpsw" id="psw" required>
-                
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input class="border rounded"  type="password" placeholder="Repeat Password" name="userpswcheck" id="psw-repeat" required>
+    <form class="d-flex">
+      <ul l class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    
-                    <label for="email"><b>Email</b></label>
-                    <input class="border rounded"  type="text" placeholder="Enter Email" name="useremail" id="email" required>
-                    
-                    <label for="adress"><b>Adress</b></label>
-                    <input class="border rounded"  type="text" placeholder="Enter adress" name="useradress" id="adress" required>
-
-                    <label for="birthday"><b>Birthday</b></label>
-                    <input class="border rounded"  type="text" placeholder="Enter birthday" name="userbday" id="birthday" required>
+                <div class="modal-body">
+                  <h1>Hello, <?php echo $_SESSION['firstname']; ?> , vous voulez vraiment partir ?!</h1>
                 </div>
-                
-                <!-- <div class="container " id="containerVisa">
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                  <button type="button" class="btn btn-primary" href=""><a href="./include/logout.php" class="text-white">Se déconnecter</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px" /></a>
+        </li>
+
+
+      </ul>
+    </form>
+  </nav>
+
+
+
+
+
+
+
+
+
+  <div class="container" id="containerProfil">
+
+    <h1>Hello, <?php echo $_SESSION['firstname']; ?> !</h1>
+
+
+
+
+
+
+    <div class="row mt-5 ">
+      <div class="col-12">
+        <h1>My Information : </h1>
+      </div>
+
+    </div>
+    <div class="row mt-2">
+
+
+
+
+      <div class="col-lg-6 col-md-6 col-sm-12 ">
+
+
+        <h3> - First Name : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3><?php echo $_SESSION['firstname']; ?> </h3>
+        </div>
+
+
+        <h3> - Lastname : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3><?php echo $_SESSION['lastname']; ?> </h3>
+        </div>
+
+        <h3> - Password : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3> We don't show it ! </h3>
+        </div>
+
+
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12">
+
+        <h3> - Email : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3><?php echo $_SESSION['email']; ?> </h3>
+        </div>
+
+        <h3> - Adress : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3><?php echo $_SESSION['addres']; ?> </h3>
+        </div>
+
+        <h3> - Birthday : </h3>
+        <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
+          <h3><?php echo $_SESSION['bday']; ?> </h3>
+        </div>
+
+        <!-- <div class="container " id="containerVisa">
                     <div class="row container-fluid  justify-content-center" id="containerVisa">
                         <div class="col-sm-12 col-md-12">
                             <div class="card">
@@ -111,16 +187,74 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="  container-fluid  col-lg-12 justify-content-center"></br>
-                        
-                            <button type="submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" id="register">MODIFIER</button>
-                </div>
-    
-             
-        </div>
-        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    <div class="row mt-5 mb-2">
+      <div class="col-4"> <button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change password</button></div>
+      <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change Name</button></div>
+      <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change Email</button></div>
+
+
 
     </div>
+
+    <form id="formpassword" name="frmChange" method="post" action="" onSubmit="return validatePassword()" style="display:none">
+      <div class="row">
+        <div class="col-4">
+
+
+
+          <label for="first-name"><b>Current password</b></label>
+          <input class="border rounded" type="password" placeholder="Current Password" name="currentPassword" required>
+        </div>
+        <div class="col-4">
+
+          <label for="last-name"><b>New Password :</b></label>
+          <input class="border rounded" type="password" placeholder="New Password" name="newPassword" required>
+        </div>
+
+        <div class="col-4">
+          <label for="psw-repeat"><b>Repeat Password : </b></label>
+          <input class="border rounded" type="password" placeholder="Repeat Password" name="confirmPassword" id="psw-repeat" required>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-12"> <button name="submit" value="Submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center">Confirm password</button></div>
+
+
+
+
     </form>
+    <div class="row">
+      <div class="class-12 bg-success">
+        <h3> <?php echo $messagepassword ?> </h3>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,7 +1,15 @@
 <?php
+session_start();
+require "connection.php";
+
+
+$sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
+$result = mysqli_query($conn, $sql);
+$test = mysqli_fetch_assoc($result);
+
 
 if (isset($_POST['submit'])) {
-    require "connection.php";
+
 
 
 
@@ -48,10 +56,10 @@ if (isset($_POST['submit'])) {
 
                 if ($row['email'] === $username) {
 
-                    $_SESSION['firstname'] = $row['firstname'];
+
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
-                    header("Location: ../accueil.php");
+                    header("Location: ../profil.php");
                     exit();
                 } else {
                     echo " invalid email";

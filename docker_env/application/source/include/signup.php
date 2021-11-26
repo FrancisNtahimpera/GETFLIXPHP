@@ -2,6 +2,7 @@
 
 if (isset($_POST['submit'])) {
     require "connection.php";
+    session_start();
 
     $emailerror = "";
     $passworderror = "";

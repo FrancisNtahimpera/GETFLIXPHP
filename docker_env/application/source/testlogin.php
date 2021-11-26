@@ -1,4 +1,6 @@
 <?php require "./include/signin.php" ?>
+<?php require "./include/clientinfo.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
