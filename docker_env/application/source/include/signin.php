@@ -1,12 +1,6 @@
 <?php
-
 if (isset($_POST['submitin'])) {
     require "connection.php";
-
-
-
-
-
 
 
 
@@ -50,7 +44,7 @@ if (isset($_POST['submitin'])) {
                     $_SESSION['firstname'] = $row['firstname'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
-                    header("Location: ../accueil.php?id=");
+                    header("Location: ./accueil.php");
                     exit();
                 } else {
                     echo " invalid email";
