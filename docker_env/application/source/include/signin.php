@@ -1,9 +1,11 @@
 <?php
-if (isset($_POST['submitin'])) {
-    require "connection.php";
+session_start();
+require "connection.php";
 
 
-
+$sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
+$result = mysqli_query($conn, $sql);
+$test = mysqli_fetch_assoc($result);
 
     if (isset($_POST['useremail']) && isset($_POST['userpsw'])) {
 
@@ -57,4 +59,4 @@ if (isset($_POST['submitin'])) {
 
         }
     }
-}
+

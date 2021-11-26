@@ -20,7 +20,7 @@ if ($conn->connect_error) {
     session_unset();
     session_destroy();
 
-    header("Location: /../testlogin.php");
+    header("Location: /../index.php");
     
 }
 
