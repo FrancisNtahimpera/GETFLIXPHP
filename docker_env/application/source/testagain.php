@@ -66,6 +66,22 @@
 
 transform:translateY(0);
 }
+.carousel-item{
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  
+}
+/* #kappa{
+  margin-top: 200px;
+  width: 100%;
+  
+}
+.carousel-active{
+  width: 100px;
+  display:inline;
+} */
 /* .section{
   padding:4.5rem 0 1.5rem;
 }
@@ -147,102 +163,60 @@ transform:translateY(0);
     </div>
   </div>
 </div>
-          <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
+         <!-- SIGN IN SIGN OUT -->
+        </li>
+        <li>
+        <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="inscription.php">SignUp</a>
-          
-        </li>
+        
         
   </ul>
     </div>
+    <ul>
+      <li>
+      <?php require "index1.php";?>
+    </li>
+  </ul>
   </div>
 </nav>
-  <section class="home swiper" id="home">
-    <!-- Swiper -->
-    <div class="swiper-wrapper ">
-      <div class="swiper-slide conatiner ">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
-        <div class="home-text">
-          <span>Marvel Univers</span>
-          <h1>Venom : Let Thfere carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
-        </div>
-      </div>
-      <div class="swiper-slide conatiner">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg""  alt="">
-        <div class="home-text">
-          <span>Marvel Univers</span>
-          <h1>Venom : Let There carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
-        </div>
-      </div>
-      <div class="swiper-slide conatiner">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg"" alt="">
-        <div class="home-text">
-          <span>Marvel Univers</span>
-          <h1>Venom : Let There carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
-        </div>
-      </div>
-    </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-<main id="main">
-  <div class="movie">
-    <img src="caroussel/img/6.jpg" alt="image">
-    <div class="movie-info">
-      <h3>titre du film</h3>
-      <span class="green">9.8</span>
+<section>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" id="">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://fr.web.img6.acsta.net/newsv7/20/06/25/16/09/5678008.jpg" alt="First slide">
     </div>
 
-    <div class="overview">
-      <h3>overview</h3>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
-      Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
-    </div>
-  </div> 
-  <div class="movie">
-    <img src="caroussel/img/1.jpg" alt="image">
-    <div class="movie-info">
-      <h3>titre du film</h3>
-      <span class="green">9.8</span>
-    </div>
 
-<div class="overview">
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
-  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+    
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-  </div> 
-  <div class="movie">
-    <img src="caroussel/img/3.jpg" alt="image">
-    <div class="movie-info">
-      <h3>titre du film</h3>
-      <span class="green">9.8</span>
-    </div>
-
-<div class="overview">
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
-  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+</section>
+ 
+    
+   
+  
+     
+   
+<div id="main">
+  //affichage des fiches de films   
 </div>
-  </div> 
-</main>
 <script>
 //API
 //------------------------ creation des const de l'url-------------------------------
@@ -257,7 +231,7 @@ getMovies(API_URL);
 
 function getMovies(url){
   fetch(url).then(res => res.json()).then(data => {
-    
+   // showImgMovies(data.results);
     showMovies(data.results);
     console.log(data.results);
   })
@@ -265,11 +239,21 @@ function getMovies(url){
 //------------------fonction d'affichage des infos de l'API--------------------
 function showMovies(data){
   main.innerHTML= ' ';
+  //caroussel.innerHtml= ' ';
 
   data.forEach(movie => {
      
 
     const {title, poster_path, vote_average, overview, release_date , original_language } = movie;
+      
+      // //creation de la div
+      // const imgMovie = document.createElement('div');
+      // //creation de la classe
+      // imgMovie.classList.add('carousel-item');
+      // imgMovie.innerHTML = `<img class="d-block w-100" src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}" alt="First slide">`
+      // main.appendChild(imgMovie);
+
+
 
     //creation de la div
     const movieEl = document.createElement('div');
@@ -289,12 +273,14 @@ function showMovies(data){
                 ${overview}
                 <br/> 
                 <div class="dateRelease" >${release_date}</div>
-                <button class="know-more btn btn-dark">  Know More</button
+                
             </div>
         
          `;
+        
 
       main.appendChild(movieEl);
+   
     
   });
 
@@ -310,27 +296,45 @@ function getColor(vote){
     return'danger';
   }
 }
-</script>
-<script>
+ 
+ 
+//------------------fonction de recuperation des infos de l'API--------------------
+function getImgMovies(url){
+  fetch(url).then(res => res.json()).then(data => {
+   // showImgMovies(data.results);
+    showImgMovies(data.results);
+    console.log(data.results);
+  })
+}
+ 
+const kappa = document.getElementById('kappa');
+//------------------fonction d'affichage des images de l'API--------------------
+function showImgMovies(data){
+  kappa.innerHTML= ' ';
 
-var swiper = new Swiper(".home", {
-  spaceBetween : 30,
-  centeredSlides:true,
-  autoPlay: {
-    delay:2500,
-    disableOnInteraction: false,
-  },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: "true",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+  data.forEach(img => {
+     
+
+    const {title, poster_path } = img;
+
+    //creation de la div
+    const imgmovieEl = document.createElement('div');
+    //creation de la classe
+    imgmovieEl.classList.add('carousel-item');
+    console.log("image ===================" + imgmovieEl.classList.add('carousel-item'));
+    imgmovieEl.innerHTML = `<img class="d-block w-100" src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}"> `;
+
+         kappa.appendChild(imgmovieEl);
+    
+  });
+
+}
+
+
+
 
 </script>
+ 
 <!-- LINK TO SWiper -->
 <link
   rel="stylesheet"

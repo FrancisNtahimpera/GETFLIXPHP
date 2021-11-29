@@ -1,10 +1,6 @@
-
-<?php session_start();
+<?php 
+session_start();
 require "connection.php";
-
-
-
-
 
 $sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
 $sql = "SELECT * from users WHERE email='" . $_SESSION["email"] . "'";
@@ -21,4 +17,4 @@ if (mysqli_num_rows($resultat) === 1) {
     $_SESSION['id'] = $row['id'];
     $_SESSION['bday'] = $row['bday'];
 
-    ?>
+}

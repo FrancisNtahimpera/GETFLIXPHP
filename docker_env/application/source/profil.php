@@ -1,70 +1,7 @@
-
 <?php
-
-
-
-session_start();
-require "connection.php";
-
-
-
-
-
-$sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
-$sql = "SELECT * from users WHERE email='" . $_SESSION["email"] . "'";
-$resultat = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($resultat) === 1) {
-    $row = mysqli_fetch_assoc($resultat);
-
-
-    $_SESSION['addres'] = $row['addres'];
-    $_SESSION['lastname'] = $row['lastname'];
-    $_SESSION['firstname'] = $row['firstname'];
-    $_SESSION['email'] = $row['email'];
-    $_SESSION['id'] = $row['id'];
-    $_SESSION['bday'] = $row['bday'];
-}
-Réduire
-clientinfo.php
-1 Ko
-<?php 
-// for the love of connection
-$servername = "database";
-$username = "root";
-$password = "root";
-$dbname = "getflix";
-Afficher plus
-connection.php
-1 Ko
-<?php
-
-$servername = "database";
-$username = "root";
-$password = "root";
-$dbname = "getflix";
-
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// check connection
-if ($conn->connect_error) {
-    error_log("Connection failed: " . $conn->connect_error);
-} else {
-
-
-    require "clientinfo.php";
-
-    session_start();
-    session_unset();
-    session_destroy();
-
-    header("Location: /../testlogin.php");
-}
-Réduire
-logout.php
-1 Ko
-<?php require "./include/profilsetup.php" ?>
+require "./include/clientinfo.php";
+require "./include/profilModification.php";
+session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
@@ -79,131 +16,9 @@ logout.php
         }
     }
 </script>
-
-<body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="accueil.php">Getflix</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorie
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Thriller</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Science Fiction</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">FIND</button>
-                </form>
-
-
-
-
-            </div>
-        </div>
-        <form class="d-flex">
-            <ul l class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <h1>Hello, <?php echo $_SESSION['firstname']; ?> , vous voulez vraiment partir ?!</h1>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-                                    <button type="button" class="btn btn-primary" href=""><a href="./include/logout.php" class="text-white">Se déconnecter</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px" /></a>
-                </li>
-
-
-            </ul>
-        </form>
-    </nav>
-
-
-
-
-
-
-
-... (160 lignes restantes)
-Réduire
-profilboris.php
-13 Ko
-<?php
-session_start();
-require "connection.php";
-
-
-$sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
-Afficher plus
-signinboris.php
-2 Ko
-<?php
-
-if (isset($_POST['submit'])) {
-    require "connection.php";
-    session_start();
-
-Afficher plus
-signupboris.php
-2 Ko
-<?php
-
-session_start();
-require "connection.php";
-require "clientinfo.php";
-
-Afficher plus
-profilsetupboris.php
-2 Ko
-﻿
-<?php require "./include/profilsetup.php" ?>
-<!DOCTYPE html>
-<html lang="en">
-<?php require "head.php" ?>
-
 <script type="text/javascript">
-    function showForm() {
-        var text = document.getElementById("formpassword");
+    function showEmail() {
+        var text = document.getElementById("formemail");
         if (text.style.display === "none") {
             text.style.display = "block";
         } else {
@@ -344,7 +159,7 @@ profilsetupboris.php
 
                 <h3> - Email : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['email']; ?> </h3>
+                    <h3><?php echo $_SESSION['email'] ?> </h3>
                 </div>
 
                 <h3> - Adress : </h3>
@@ -393,10 +208,10 @@ profilsetupboris.php
 
 
 
-        <div class="row mt-5 mb-2">
+        <div class="row mt-5 mb-2 justify-content-around">
             <div class="col-4"> <button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change password</button></div>
-            <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change Name</button></div>
-            <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change Email</button></div>
+
+            <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showEmail()">Change Email</button></div>
 
 
 
@@ -432,9 +247,37 @@ profilsetupboris.php
 
 
         </form>
+        <form id="formemail" name="frmChange" method="post" action="" style="display:none">
+            <div class="row">
+                <div class="col-6">
+
+
+
+                    <label for="first-name"><b>Current Email</b></label>
+                    <input class="border rounded" type="text" placeholder="Current Email" name="mail" required>
+                </div>
+                <div class="col-6">
+
+                    <label for="last-name"><b>New Email :</b></label>
+                    <input class="border rounded" type="text" placeholder="New Email" name="newmail" required>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-12"> <button name="submitemail" value="Submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center">Confirm Email</button></div>
+
+
+
+
+        </form>
         <div class="row">
             <div class="class-12 bg-success">
                 <h3> <?php echo $messagepassword ?> </h3>
+                <h3> <?php echo $message ?> </h3>
             </div>
         </div>
 
