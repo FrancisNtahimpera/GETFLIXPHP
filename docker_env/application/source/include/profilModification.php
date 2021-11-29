@@ -1,8 +1,8 @@
 <?php
-
 session_start();
 require "connection.php";
 require "clientinfo.php";
+$bademail = $_SESSION['email'];
 
 
 if (isset($_POST['submit'])) {
@@ -37,10 +37,10 @@ if (isset($_POST['submit'])) {
         $messagepassword = " error , wrong password";
     }
 }
- 
+
 /* AJOUTMAIL */
 
-/* if (count($_POST) > 0) {
+if (isset($_POST['submitemail'])) {
 
     $result = mysqli_query($conn, "SELECT * from users WHERE id='" . $_SESSION["id"] . "'");
     $row = mysqli_fetch_array($result);
@@ -52,7 +52,24 @@ if (isset($_POST['submit'])) {
         mysqli_query($conn, "UPDATE users set email='" . $_POST["newmail"] . "' WHERE id='" . $_SESSION["id"] . "'");
 
         $message = "mail Changed";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $_SESSION['email'] = $_POST["newmail"];
+
+        header("Refresh:0");
     } else {
         $message = "Current mail is not correct";
     }
-} */
+}

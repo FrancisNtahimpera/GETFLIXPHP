@@ -144,6 +144,7 @@ ul {
       </form>
       <ul  l class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<<<<<<< HEAD:docker_env/application/source/testagain.php
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -167,13 +168,39 @@ ul {
         </li>
         <li>
         <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
+=======
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                        <div class="modal-body">
+                          hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                          <button type="button" class="btn btn-primary">Se deconnecter</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
+>>>>>>> refs/remotes/origin/master:docker_env/application/source/accueil.php
         </li>
         
         <li class="nav-item">
           <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
+<<<<<<< HEAD:docker_env/application/source/testagain.php
         
         
+=======
+       
+>>>>>>> refs/remotes/origin/master:docker_env/application/source/accueil.php
   </ul>
     </div>
     <ul>
