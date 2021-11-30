@@ -22,3 +22,12 @@ function toogle2($var = '') {
         echo $var;
     }
 };
+
+function notPass () {
+    if (!isset($_SESSION['email'])) {
+        echo $mes = "echo '<script type='text/javascript'>alert('You dont have any acces'); window.location.href = '../login.php'; </script>";
+       
+       
+    }
+
+}

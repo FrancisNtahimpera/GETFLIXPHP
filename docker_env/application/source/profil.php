@@ -1,7 +1,9 @@
 <?php
 require "./include/clientinfo.php";
 require "./include/profilModification.php";
-session_start() ?>
+require "./include/functions.php";
+notPass();
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>

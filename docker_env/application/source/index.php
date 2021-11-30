@@ -1,7 +1,7 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
 <?php require "./include/clientinfo.php" ?>
-<?php require "./include/change.php" ?>
+<?php require "./include/functions.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
