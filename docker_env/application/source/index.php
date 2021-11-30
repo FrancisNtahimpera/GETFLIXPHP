@@ -8,7 +8,7 @@
 <link rel="stylesheet" href=" css/style.css">
 <link rel="stylesheet" href="style.css">
 <body>
-  <style>
+<style>
     #main{
   display:flex;
   flex-wrap:wrap;
@@ -77,142 +77,116 @@ ul {
 .hide {
   display: none;
 }
-/* .section{
-  padding:4.5rem 0 1.5rem;
-}
-.conatiner{
-  width:100%;
-  min-height:640px;
-  position:relative;
-  display: flex;
-  align-items:center;
-  background:rgb(23,7,0..4,);
+</style>
+
+<!-- navbar -->
 
 
-}
-.conatiner img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  
-
-}
-.swiper-pagination-bullet{
-  width: 6px !important;
-  heigth:6px !important;
-  border-radius: 0.2rem !important;
-  background : black;
-  opacity:1;
-
-
-} */
-  </style>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Getflix</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-1">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorie
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Thriller</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Science Fiction</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Horror</a></li>
-            <li><hr class="dropdown-divider"></li>
-          </ul>
-        </li>
-         
-      </ul>
-      <form class="d-flex">
-        <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">FIND</button>
-      </form>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-        <li class="nav-item <?php toogle1() ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                        <div class="modal-body">
-                          hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-                          <button type="button" class="btn btn-primary">Se deconnecter</button>
+            </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Thriller</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Science Fiction</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Horror</a></li>
+                <li><hr class="dropdown-divider"></li>
+            </ul>
+          </li>  
+        </ul>
+        <form class="d-flex">
+          <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">FIND</button>
+        </form>
+        <div class="">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0  align-self-end">
+            <li class="nav-item <?php toogle1() ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?</div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                        <button type="button" class="btn btn-primary">Se deconnecter</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
-        </li>
-        
-        <li class="nav-item <?php toogle1() ?>">
-          <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
-        </li>
-         <li>
-      <?php require "index1.php";?>
-      
-    </li>
- 
-       
-  </ul>
-    </div>
+                <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
+            </li>
+          
+            <li class="nav-item <?php toogle1() ?>">
+            <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
+            </li>
+            <li>
+              <?php require "index1.php";?>
+            </li>
+          </ul>
+        </div>
+      </div>
   </div>
 </nav>
-  <section class="home swiper" id="home">
-    <!-- Swiper -->
-    <div class="swiper-wrapper ">
-      <div class="swiper-slide conatiner ">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
+
+
+ <!-- Swiper -->
+<section class="home swiper" id="home">
+  <div class="swiper-wrapper ">
+    <div class="swiper-slide conatiner ">
+      <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
         <div class="home-text">
           <span>Marvel Univers</span>
           <h1>Venom : Let Thfere carnage</h1>
           <a href="#" class="btn">book now</a>
           <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
+          <i class="bx bx-play"></i></a>
         </div>
-      </div>
-      <div class="swiper-slide conatiner">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg""  alt="">
-        <div class="home-text">
-          <span>Marvel Univers</span>
-          <h1>Venom : Let There carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
+    </div>
+    <div class="swiper-slide conatiner">
+      <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg"  alt="">
+      <div class="home-text">
+        <span>Marvel Univers</span>
+        <h1>Venom : Let There carnage</h1>
+        <a href="#" class="btn">book now</a>
+        <a href="#" class="play">play</a>
+        <i class="bx bx-play"></i></a>
         </div>
-      </div>
-      <div class="swiper-slide conatiner">
-        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg"" alt="">
-        <div class="home-text">
-          <span>Marvel Univers</span>
-          <h1>Venom : Let There carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">play</a>
-            <i class="bx bx-play"></i></a>
-        </div>
+    </div>
+    <div class="swiper-slide conatiner">
+      <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
+      <div class="home-text">
+        <span>Marvel Univers</span>
+        <h1>Venom : Let There carnage</h1>
+        <a href="#" class="btn">book now</a>
+        <a href="#" class="play">play</a>
+        <i class="bx bx-play"></i></a>
       </div>
     </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>  
+</section>
+
+
+
 <main id="main">
   <div class="movie">
     <img src="caroussel/img/6.jpg" alt="image">
