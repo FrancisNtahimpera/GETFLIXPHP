@@ -87,7 +87,7 @@ session_start();
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <h1>Hello, <?php echo $_SESSION['firstname']; ?> , vous voulez vraiment partir ?!</h1>
+                                    <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> , vous voulez vraiment partir ?!</h1>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
@@ -118,7 +118,7 @@ session_start();
 
     <div class="container" id="containerProfil">
 
-        <h1>Hello, <?php echo $_SESSION['firstname']; ?> !</h1>
+        <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> !</h1>
 
 
 
@@ -141,13 +141,13 @@ session_start();
 
                 <h3> - First Name : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['firstname']; ?> </h3>
+                    <h3><?php echo pre($_SESSION['firstname']); ?> </h3>
                 </div>
 
 
                 <h3> - Lastname : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['lastname']; ?> </h3>
+                    <h3><?php echo pre($_SESSION['lastname']); ?> </h3>
                 </div>
 
                 <h3> - Password : </h3>
@@ -162,17 +162,17 @@ session_start();
 
                 <h3> - Email : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['email'] ?> </h3>
+                    <h3><?php echo pre($_SESSION['email']); ?> </h3>
                 </div>
 
                 <h3> - Adress : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['addres']; ?> </h3>
+                    <h3><?php echo pre($_SESSION['addres']); ?> </h3>
                 </div>
 
                 <h3> - Birthday : </h3>
                 <div class="mt-3 mb-3 bg-light bg-gradient border border-1 rounded">
-                    <h3><?php echo $_SESSION['bday']; ?> </h3>
+                    <h3><?php echo pre($_SESSION['bday']); ?> </h3>
                 </div>
 
                 <!-- <div class="container " id="containerVisa">

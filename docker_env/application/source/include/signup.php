@@ -16,10 +16,10 @@ if (isset($_POST['submitup'])) {
     $bday = $_POST['userbday'];
 
     if (empty($firstname) or empty($lastname) or empty($passw) or empty($passcheck) or empty($email) or empty($address) or empty($bday)) {
-        header("Location: ../inscription.php?error=emptyfields");
+        header("Location: ../index.php?error=emptyfields");
         exit();
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../inscription.php?error=invalidemail");
+        header("Location: ../index.php?error=invalidemail");
 
         exit();
     } elseif ($passw !== $passcheck) {

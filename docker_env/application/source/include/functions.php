@@ -31,3 +31,7 @@ function notPass () {
     }
 
 }
+
+function pre($value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
