@@ -70,12 +70,14 @@ if (isset($_POST['submitforgot'])) {
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            $forgotmessage = " Message as been Send ! ";
+            /*    header("Location: ./index#myModal.php"); */
+
+            $forgotmessage = '<script>alert("Mail  as been send ! Check yours SPAM ")</script>';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
-        $forgotmessage = " mail not found ! ";
+        $forgotmessage = '<script>alert("Mail not found")</script>';
     }
 }
     //Create an instance; passing `true` enables exceptions

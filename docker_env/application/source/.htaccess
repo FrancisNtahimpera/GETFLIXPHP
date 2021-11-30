@@ -2,4 +2,7 @@
 # HTID:18835820: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
 php_value display_errors 1
 # DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:18835820:
-
+$servername = "database";
+$username = "root";
+$password = "root";
+$dbname = "getflix";

@@ -1,6 +1,8 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
 <?php require "./include/clientinfo.php" ?>
+<?php require "./include/forgotpassword.php" ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,25 +59,72 @@
                   <label class="form-label" for="typePasswordX">Password:</label>
                     <input type="password" id="typePasswordX" class="form-control form-control-lg" name="userpsw" />
                   </div>
+                  
+                     <!--    boris -->
 
-                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="changepassword.php">Forgot password?</a></p>
+                   <a data-toggle="modal" href="#myModal" class="mb-2">forgot password? </a>
 
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit" name="submitin">Login</button>
-
-                </div>
-
-                <div>
-                  <p class="mb-0">Don't have an account? <a href="inscription.php" class="text-white-50 fw-bold">Sign Up</a></p>
-                </div>
-
-
-              </div>
-            </div>
+            <br>
+            <button class="btn btn-outline-light btn-lg px-5" type="submit" name="submitin">Login</button>
 
           </div>
-        </div>
-      </form>
 
+          <div>
+            <p class="mb-0">Don't have an account?  <a data-toggle="modal" href="#exampleModale2" class="mb-2"> Sign up ! </a></p>
+           
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+<form action="" method="POST">
+  <div id="myModal" class="modal fade " tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark mr-2">
+        <div class="modal-header bg-transparent text-white text-center  pt-5 pb-5 ">
+
+          <h1 class="text-center pl-4 ">What's My Password?</h1>
+        </div>
+        <div class="modal-body bg-transparent text-white">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center pt-3 ">
+
+                  <p>If you have forgotten your password you can reset it here.</p>
+                  <div class="panel-body">
+                    <fieldset>
+                      <div class="form-group pt-5 pb-5">
+                        <input class="form-control input-lg" placeholder="E-mail Address" name="emailforgot" type="email">
+                      </div>
+                      <button class="btn btn-outline-light btn-lg  bg-primary " type="submit" name="submitforgot">Send new password</button>
+
+                      <div class="bg-success">
+                        <h1> <?php echo $forgotmessage; ?> </h1>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-md-12 pt-5 mb-5 ">
+            <button class="btn  bg-danger text-white" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  <!--    boris  end -->
       <form action="" method="POST">
         <div class="modal fade container-fluid" id="exampleModale2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelee" aria-hidden="true">
           <div class="modal-dialog" role="document">
