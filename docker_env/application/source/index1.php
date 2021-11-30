@@ -1,6 +1,7 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
 <?php require "./include/clientinfo.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,10 @@
 
 <body>
   </br></br>
-  <div class="container">
+  <div class="container <?php toogle2() ?>">
     <div class="row">
       <!-- Button trigger modal -->
-      <div class="container-fluid d-flex justify-content-end">
+      <div class="container-fluid d-flex justify-content-end ">
         <div>
           <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale1">
             Sign In

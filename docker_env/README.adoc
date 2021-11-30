@@ -24,3 +24,8 @@ To stop the process run `sudo docker-compose down`, and to clean the created
 image run `sudo docker rmi docker_env_server`.
 
 NOTE: You can always ask help to your coach to setup your environment.
+
+$servername = "localhost";
+$username = "id18030110_suprastar444";
+$password = "ZZ?~Ba^zd&i7U@9T";
+$dbname = "id18030110_getflix";

@@ -1,6 +1,7 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
 <?php require "./include/clientinfo.php" ?>
+<?php require "./include/change.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
@@ -73,6 +74,9 @@ ul {
   list-style-type: none;
   
 }
+.hide {
+  display: none;
+}
 /* .section{
   padding:4.5rem 0 1.5rem;
 }
@@ -133,8 +137,8 @@ ul {
         <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">FIND</button>
       </form>
-      <ul  l class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item <?php toogle1() ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -157,11 +161,12 @@ ul {
           <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
         
-        <li class="nav-item">
+        <li class="nav-item <?php toogle1() ?>">
           <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
          <li>
       <?php require "index1.php";?>
+      
     </li>
  
        
