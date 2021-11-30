@@ -1,3 +1,6 @@
+<?php require "./include/signin.php" ?>
+<?php require "./include/signup.php" ?>
+<?php require "./include/clientinfo.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
@@ -55,8 +58,7 @@
   left:0;
   right:0;
   bottom:0;
-  background: rgb(63,94,251);
-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #fff;
   padding: 1rem;
   max-height: 100%;
   transform:translateY(+200%);
@@ -67,18 +69,9 @@ background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
 
 transform:translateY(0);
 }
-.carousel-item{
-  width: 100%;
-}
 ul {
   list-style-type: none;
   
-}
-.know-more{
-  background-color: orange;
-  color: white ;
-  font-weight: BOLD;
-  padding: auto;
 }
 /* .section{
   padding:4.5rem 0 1.5rem;
@@ -141,55 +134,122 @@ ul {
         <button class="btn btn-outline-success" type="submit">FIND</button>
       </form>
       <ul  l class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalu">
-        <div class="modal fade" id="exampleModalu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-        <button type="button" class="btn btn-primary">Se deconnecter</button>
-      </div>
-    </div>
-  </div>
-</div>
-         <!-- SIGN IN SIGN OUT -->
-        </li>
-        <li>
-        <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
+        <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                        <div class="modal-body">
+                          hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                          <button type="button" class="btn btn-primary">Se deconnecter</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
         </li>
-        
-        
-  </ul>
-    </div>
-    <ul>
-      <li>
+         <li>
       <?php require "index1.php";?>
     </li>
+ 
+       
   </ul>
+    </div>
   </div>
 </nav>
- 
-    
-   
-  
-     
-   
-<div id="main">
-  //affichage des fiches de films   
+  <section class="home swiper" id="home">
+    <!-- Swiper -->
+    <div class="swiper-wrapper ">
+      <div class="swiper-slide conatiner ">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg" alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let Thfere carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+      <div class="swiper-slide conatiner">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg""  alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let There carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+      <div class="swiper-slide conatiner">
+        <img src="https://images.everyeye.it/img-notizie/quali-migliori-film-marvel-pubblico-deciso-v3-483968.jpg"" alt="">
+        <div class="home-text">
+          <span>Marvel Univers</span>
+          <h1>Venom : Let There carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">play</a>
+            <i class="bx bx-play"></i></a>
+        </div>
+      </div>
+    </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+<main id="main">
+  <div class="movie">
+    <img src="caroussel/img/6.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
+
+    <div class="overview">
+      <h3>overview</h3>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+      Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+      Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+    </div>
+  </div> 
+  <div class="movie">
+    <img src="caroussel/img/1.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
+
+<div class="overview">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
 </div>
+  </div> 
+  <div class="movie">
+    <img src="caroussel/img/3.jpg" alt="image">
+    <div class="movie-info">
+      <h3>titre du film</h3>
+      <span class="green">9.8</span>
+    </div>
+
+<div class="overview">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+  Aut tempora nam, repudiandae in quaerat magni quas placeat enim. 
+  Itaque, nobis inventore. Obcaecati qui quasi eos autem debitis asperiores numquam a.
+</div>
+  </div> 
+</main>
 <script>
 //API
 //------------------------ creation des const de l'url-------------------------------
@@ -216,7 +276,7 @@ function showMovies(data){
   data.forEach(movie => {
      
 
-    const {title, poster_path, vote_average, overview, release_date , original_language, id } = movie;
+    const {title, poster_path, vote_average, overview, release_date , original_language } = movie;
 
     //creation de la div
     const movieEl = document.createElement('div');
@@ -232,25 +292,21 @@ function showMovies(data){
             ${original_language}
             <div class="overview  bg-success  rounded text-light">
             
-                <h3>Résumé</h3>
+                <h3 >Résumé</h3>
                 ${overview}
                 <br/> 
-               
-                <button class="know-more" id="${id}">  Know More</button> <br/> 
-                 
+                <div class="dateRelease" >${release_date}</div>
+                <button class="know-more btn btn-dark">  Know More</button
             </div>
         
          `;
-//          document.getElementsById(id).addEvenListener.('click' , () => {
-
-// console.log(id);
-// })
 
       main.appendChild(movieEl);
-   
-  })
+    
+  });
 
-};
+}
+
 function getColor(vote){
   if(vote>= 8){
     return ' ';
@@ -260,8 +316,35 @@ function getColor(vote){
   }else{
     return'danger';
   }
-};
+}
 </script>
-<script> 
+<script>
+
+var swiper = new Swiper(".home", {
+  spaceBetween : 30,
+  centeredSlides:true,
+  autoPlay: {
+    delay:2500,
+    disableOnInteraction: false,
+  },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: "true",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+</script>
+<!-- LINK TO SWiper -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+/>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script
+     
 </body>
 </html>

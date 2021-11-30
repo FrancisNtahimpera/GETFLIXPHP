@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "connection.php";
+require "clientinfo.php";
 
 
 $sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
@@ -46,7 +47,7 @@ $test = mysqli_fetch_assoc($result);
                     $_SESSION['firstname'] = $row['firstname'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['id'] = $row['id'];
-                    header("Location: ./accueil.php");
+                    header("Location: ../index.php");
                     exit();
                 } else {
                     echo " invalid email";

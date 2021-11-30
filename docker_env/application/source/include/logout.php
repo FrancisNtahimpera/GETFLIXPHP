@@ -1,9 +1,8 @@
 <?php
-
-$servername = "database";
-$username = "root";
-$password = "root";
-$dbname = "getflix";
+$servername = "localhost";
+$username = "id18030110_suprastar444";
+$password = "ZZ?~Ba^zd&i7U@9T";
+$dbname = "id18030110_getflix";
 
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -16,11 +15,11 @@ if ($conn->connect_error) {
 
     require "clientinfo.php";
 
-    session_start();
+   
     session_unset();
     session_destroy();
 
-    header("Location: /../index.php");
+    header("Location: ../index.php");
     
 }
 
