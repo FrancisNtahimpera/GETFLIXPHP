@@ -296,7 +296,9 @@ $ch = curl_init();
 $urlimg = "https://image.tmdb.org/t/p/w500";
 $key = "api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
 $url ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
-
+$urlmoviesVideos1 ="https://api.themoviedb.org/3/movie/";
+$urlmoviesVideos2 = "/videos";
+$urlmoviesVideos3= $urlmoviesVideos1.''.$id.''.$urlmoviesVideos2 ;
 // api best movie
 curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -359,8 +361,8 @@ curl_close($ch2);
     <div class="d-flex flex-row ">
        <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-    <img  class="p-2  "  src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
-    <img  class="p-2  " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img  class="p-2   "  src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img  class="p-2 " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
     <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
     <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
       <!-- -------------------------FIN-------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->

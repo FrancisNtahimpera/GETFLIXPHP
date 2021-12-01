@@ -158,6 +158,7 @@
       .overlay a {
         font-size: 20px
       }
+      
 
       .overlay .closebtn {
         font-size: 40px;
@@ -165,6 +166,7 @@
         right: 35px;
       }
     }
+    
 
     /* .section{
   padding:4.5rem 0 1.5rem;
@@ -289,12 +291,15 @@
 
   <?php 
 //phpinfo() .' <br>'; 
+//-----------------------DEBUT premier TABLEAU- --------------------------------------------------
 $ch = curl_init();
 $urlimg = "https://image.tmdb.org/t/p/w500";
 $key = "api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
 $url ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
-
-
+$urlmoviesVideos1 ="https://api.themoviedb.org/3/movie/";
+$urlmoviesVideos2 = "/videos?";
+$urlmoviesVideos3= $urlmoviesVideos1.''.$id.''.$urlmoviesVideos2.''.$key;
+// api best movie htttps://api.themoviedb.org/3/movie/512195/videos?92a6e3e8847a6472bbf29ab8fa36f02c
 curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -307,12 +312,36 @@ $data = json_decode($resp);
 $moviesArray = $data -> results ; 
 //echo '<pre>'; print_r($moviesArray[0]); echo '</pre> </br>';
 //echo '<pre>'; print_r($moviesArray[0] -> id); echo '</pre>';
-
-
-
-
+//-----------------------FIN PREMIER TABLEAU-----------------------------------------------------------------------------------------------
 curl_close($ch);
+//-----------------------DEBUT DEUXIEME TABLEAU--------------------------------------------------------------------------------------------
+$ch2 = curl_init();
+$urlimg2 = "https://image.tmdb.org/t/p/w500";
+$key2 = "api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
+
+$url2 = "https://api.themoviedb.org/3/discover/movie?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
+
+// api best movie
+curl_setopt($ch2, CURLOPT_URL, $url2);
+  curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+
+$resp2 = curl_exec($ch2);
+$data2 = json_decode($resp2);
+
+//echo '<pre>'; print_r($data); echo '</pre>';
+
+
+$moviesArray2 = $data2 -> results ; 
+//echo '<pre>'; print_r($moviesArray[0]); echo '</pre> </br>';
+//echo '<pre>'; print_r($moviesArray[0] -> id); echo '</pre>';
+
+ //var_dump($moviesArray2); //affichage tableuad 
+
+
+curl_close($ch2);
+// ------------------FIN DEUXIEME TABLEAU  --------------------------------------------------------------------------
 ?>
+ <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
     <div id="carousel">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -332,34 +361,39 @@ curl_close($ch);
     <div class="d-flex flex-row ">
        <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-    <img  class="p-2  "  src="<?php echo $urlimg.''.$moviesArray[rand(0, 19)] -> poster_path; ?>" alt="jkl">
-    <img  class="p-2  " src="<?php echo $urlimg.''.$moviesArray[rand(0, 19)] -> poster_path; ?>" alt="jkl">
-    <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray[rand(0, 19)] -> poster_path; ?>" alt="jkl">
-    <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img  class="p-2   "  src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img  class="p-2 " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
+    <img class="p-2  " src="<?php echo $urlimg.''.$moviesArray2[rand(0, 19)] -> poster_path; ?>" alt="jkl">
       <!-- -------------------------FIN-------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
     </div>
     </div>
       <!-- --------------------------------------BOUCLE IMG POUR CAROUSSEL  -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-	<div class="d-flex flex-row">
-		<?php 
-		
-		for ($i=0;$i<=19;$i++){
-
-			 echo '<img class="p-2" src="'. $urlimg.''.$moviesArray[$i] -> poster_path .'>	<img src="'. $urlimg.''.$moviesArray[$i] -> poster_path.'" alt="">';
-		}
-		
-		?>
-      
-</div> 
+  
+      <?php  
+      for ($i = 0; $i <= 9; $i++) {
+        
+        ?> <?php echo '<div class="carousel-item   " id ="'.$moviesArray[$i] -> original_title .' " >' ;?>
+          <div class="d-flex flex-row ">  <div class=" p-2  ">   <img src="<?php echo $urlimg.''.$moviesArray[$i+5] -> poster_path; ?>" alt="jkl"> </div> 
+             <!-- <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArra2[$i+6] -> poster_path; ?>" alt="jkl1"></div>  -->
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+8] -> poster_path; ?>" alt="jkl2"></div> 
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+10] -> poster_path; ?>" alt="jkl3"></div> 
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+4] -> poster_path; ?>" alt="jkl4"></div> 
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+3] -> poster_path; ?>" alt="jkl5"></div> 
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+2] -> poster_path; ?>" alt="jkl6"></div> 
+             <div class="p-2 ">    <img src="<?php echo $urlimg.''.$moviesArray2[$i+1] -> poster_path; ?>" alt="jkl7"></div> 
+           </div> 
+      <?php  ;
+   echo  '</div>';
    
    
    
    
-   
-   
-	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+   }?>
+   <!-- ----------------------------------------BOUTON CAROUSEL ---------------------------------------------- -->
+   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
@@ -393,12 +427,45 @@ for ($i = 0; $i <= 19; $i++) {
                       
                       <br/> 
                       <div class="dateRelease" > </div>
-                      <button class="know-more btn btn-dark">  TRAILERS </button>
+                      <button class="know-more btn btn-dark" onClick="openNav() , clic(this.id) " id="<?php echo  $tester = $moviesArray[$i] -> id; ?>"> <?php echo $moviesArray[$i] -> id; ?></button>
                   </div>
                 </div>
                 <?php } ;
    echo  '</div>'; ?>
     </div>
+
+    <!-- HTML OverLAY VIDEOS TEST-----------------------------------------------------------------------------------------------------------------  -->
+    <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <div id="popo" class="text-white ">
+
+    
+    </div>
+  </div>
+</div>
+     
+    <script>
+      // -----------------------creation du liens du trailers -------------------------------------------------------------
+      let idFIlms;
+         function clic(idFIlms){
+        document.getElementById('popo').innerHTML = "affichage du idFIlms :"+idFIlms+" ";
+        let films = document.createElement('div class="text-white');
+        films.innerHTML= " ";
+
+         
+        }
+        
+ // JAVASCRIPT---------- OverLAY VIDEOS TEST-----------------------------------------------------------------------------------------------------------------  -->
+    
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
  
