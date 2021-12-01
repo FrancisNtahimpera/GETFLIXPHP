@@ -66,7 +66,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #fff;
+            background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
             padding: 1rem;
             max-height: 100%;
             transform: translateY(+200%);
@@ -79,15 +80,24 @@
             transform: translateY(0);
         }
 
+        .carousel-item {
+            width: 100%;
+        }
+
         ul {
             list-style-type: none;
 
         }
 
-        .hide {
-            display: none;
+        .know-more {
+            background-color: orange;
+            color: white;
+            font-weight: BOLD;
+            padding: auto;
         }
 
+        /* CSS DES TRAILERS  */
+        /* The Overlay (background) */
         .overlay {
             /* Height & width depends on how you want to reveal the overlay (see JS below) */
             height: 100%;
@@ -160,19 +170,50 @@
                 right: 35px;
             }
         }
+
+
+        /* .section{
+  padding:4.5rem 0 1.5rem;
+}
+.conatiner{
+  width:100%;
+  min-height:640px;
+  position:relative;
+  display: flex;
+  align-items:center;
+  background:rgb(23,7,0..4,);
+
+
+}
+.conatiner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  
+
+}
+.swiper-pagination-bullet{
+  width: 6px !important;
+  heigth:6px !important;
+  border-radius: 0.2rem !important;
+  background : black;
+  opacity:1;
+
+
+} */
     </style>
 
-    <!-- navbar -->
+    <!-- ----------------DEBUT ----------------------BAR     DE   NAVIGATION-----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex ">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Getflix</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorie
@@ -196,46 +237,51 @@
                             </li>
                         </ul>
                     </li>
+
                 </ul>
                 <form class="d-flex">
                     <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">FIND</button>
                 </form>
-                <div class="">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0  align-self-end">
-                        <li class="nav-item <?php toogle1() ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?</div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-                                            <button type="button" class="btn btn-primary">Se deconnecter</button>
-                                        </div>
+                <ul l class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalu">
+                        <div class="modal fade" id="exampleModalu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                                        <button type="button" class="btn btn-primary">Se deconnecter</button>²
                                     </div>
                                 </div>
                             </div>
-                            <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
-                        </li>
-
-                        <li class="nav-item <?php toogle1() ?>">
-                            <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px" /></a>
-                        </li>
-                        <li>
-
-                        </li>
-                    </ul>
-                </div>
-                <?php require "index1.php"; ?>
+                        </div>
+                        <!-- SIGN IN SIGN OUT -->
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
+                    </li>
+                </ul>
             </div>
+            <ul>
+                <li>
+                    <?php require "index1.php"; ?>
+                </li>
+            </ul>
         </div>
     </nav>
+    <!-- ----------------FIN ----------------------BAR     DE   NAVIGATION-----------------------------------------------------------------------------------------------------------------------------------------  -->
+
+
+
 
 
     <!-- ----------------CODE API ---------------------- ----------------------------------------------------------------------------------------------------------------------------------------  -->
@@ -339,11 +385,9 @@
                 <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 2]->poster_path; ?>" alt="jkl6"></div>
                 <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 1]->poster_path; ?>" alt="jkl7"></div>
             </div>
-
-        <?php echo '</div>';
+        <? php;
+            echo  '</div>';
         } ?>
-
-
         <!-- ----------------------------------------BOUTON CAROUSEL ---------------------------------------------- -->
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
