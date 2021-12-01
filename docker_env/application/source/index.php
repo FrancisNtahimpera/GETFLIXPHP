@@ -137,10 +137,11 @@ ul {
             <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px"/></a>
             </li>
             <li>
-              <?php require "index1.php";?>
+              
             </li>
           </ul>
         </div>
+        <?php require "index1.php";?>
       </div>
   </div>
 </nav>
