@@ -1,17 +1,36 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+<?php require "head.php" ?>
+<link rel="stylesheet" href=" css/style.css">
+<link rel="stylesheet" href="style.css">
+<body>
       <!-- Button trigger modal -->
       <div class="container-fluid d-flex justify-content-end">
         <div>
-          <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale1">
-            Sign In
-          </button>
-        </div>
-        <div>
-          <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale2">
-            Sign Up
-          </button>
-        </div>
+        <?php 
+        if(!$_SESSION['name']){
+
+      echo'  <button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale1">
+      Sign In
+    </button> </div>
+    <div>';
+    } else {
+
+        echo '<button type="button" class="btn btn-dark mx-2" data-toggle="modal" data-target="#exampleModale2">
+        Sign Up
+      </button>
+    </div>';
+    }
+    
+    
+    
+    
+    ?>
+         
+        
+          
       </div>
 
       
@@ -24,7 +43,7 @@
 
 
               <div class="card bg-transparent container-fluid" style="border-radius: 1rem;">
-
+    
 
                 <div class="mb-md-5 mt-md-4 pb-5 bg-transparent text-white">
 
