@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  ## PHP-Apache service
+  server:
+    build:
+      context: ./application
+    container_name: webnux-webserver
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - ./application/source:/var/www/html
+    env_file:
+      - ./docker.env
+    networks:
+      - webnux
+
+  ## Mariadb service 
+  database:
+    image: mariadb:10.4.2
+    container_name: webnux-database
+    restart: always
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d/
+      - webnux_data:/var/lib/mysql
+    env_file:
+      - ./docker.env
+    networks:
+      - webnux
+
+  ## PhpMyAdmin
+  myadmin:
+    image: phpmyadmin/phpmyadmin:4.8.1
+    container_name: webnux-phpmyadmin
+    ports:
+      - 8081:80
+    restart: always
+    env_file:
+      - ./docker.env
+    depends_on:
+      - database
+    networks:
+      - webnux
+
+networks:
+  webnux:
+
+volumes:
+  webnux_data:
