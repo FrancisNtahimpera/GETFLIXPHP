@@ -33,7 +33,7 @@ function toogle3($var = '')
         echo $var;
     } else {
 
-        $var = ' <button class=" know-more btn btn-dark" onClick="openNav() , clic(this.id) " id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> Watch it </button>';
+        $var = ' <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?></button>';
         echo $var;
     }
 }

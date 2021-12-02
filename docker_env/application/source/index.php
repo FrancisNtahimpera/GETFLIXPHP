@@ -397,6 +397,7 @@
                 <br />
                 <div class="dateRelease"> </div>
                 <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?></button>
+               
             </div>
     </div>
 <?php };
@@ -450,6 +451,7 @@
 
     function closeNav() {
         document.getElementById("myNav").style.width = "0%";
+        document.getElementById("popo").innerHTML = "";
     }
  
 //fonction recherche sur Submit button
