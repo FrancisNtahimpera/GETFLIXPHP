@@ -3,6 +3,7 @@ session_start();
 require "connection.php";
 require "clientinfo.php";
 
+$test1 = '';
 
 $sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
 $result = mysqli_query($conn, $sql);
@@ -55,9 +56,12 @@ $test = mysqli_fetch_assoc($result);
             } else {
                 echo "not working";
             }
-        } else {
-            // Invalid credentials
-
-        }
+        }  else { $testq =  "<script type='text/javascript'>   
+                        var w = window.open('','','width=500,height=100');
+                        w.document.write('Wrong Password, You will be directed in the main page...');
+                        w.focus();
+                        setTimeout(function() {w.close(); window.location.href = 'index.php';}, 2000)
+                        </script>";
+                    }
+        
     }
-

@@ -23,6 +23,24 @@ function toogle2($var = '') {
     }
 };
 
+
+function toogle3($var = '')
+{
+
+    if (!isset($_SESSION['email'])) {
+
+        $var = ' <button class=" know-more btn btn-dark" onClick="test4()" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> You must be logged to see </button>';
+        echo $var;
+    } else {
+
+        $var = ' <button class=" know-more btn btn-dark" onClick="openNav() , clic(this.id) " id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> Watch it </button>';
+        echo $var;
+    }
+}
+
+
+
+
 function notPass () {
     if (!isset($_SESSION['email'])) {
         echo $mes = "echo '<script type='text/javascript'>alert('You dont have any acces'); window.location.href = '../login.php'; </script>";
