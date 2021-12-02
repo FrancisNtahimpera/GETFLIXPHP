@@ -17,18 +17,35 @@
         }
 
         .movie {
+          border: 10px solid transparent;
             width: 300px;
             margin: 1rem;
-            border-radius: 3px;
+            border-radius: 10px;
             box-shadow: 0.2px 4px 5px rgba(0, 0, 0.1);
             background-color: rgba(92, 202, 202, 0.307);
             position: relative;
             overflow: hidden;
-
-        }
+            
+          }
+          .movie:hover{
+            width:310px;
+            transition:width 0.3s linear 0s;
+            border: 2px solid transparent;
+        transition:border 0.5s ease-in-out 0s;
+        -webkit-box-shadow:7px 13px 25px 5px #2c0707 inset;
+-moz-box-shadow:7px 13px 25px 5px #2c0707 inset;
+box-shadow:7px 13px 25px 5px #2c0707 inset;
+-webkit-box-shadow:7px 13px 25px 5px #000000 ;
+-moz-box-shadow:7px 13px 25px 5px #000000 ;
+box-shadow:7px 13px 25px 5px #000000 ;
+          
+            
+          }
 
         .movie img {
             width: 100%;
+            
+            
 
         }
 
@@ -39,6 +56,7 @@
             justify-content: space-between;
             padding: 0.5rem 1rem 1rem;
             letter-spacing: 0.5px;
+            
         }
 
         .movie-info h3 {
@@ -160,12 +178,60 @@
                 right: 35px;
             }
         }
+        #carousel{
+          margin-top: 100px;
+        }
+        .navigationel{
+          background : transparent !important ;
+          transform: ;
+        }
+        .navigationel:hover{
+          background : black !important ;
+          transition:width 0.1s linear 0s,background-color 3s ease-in-out 0 0s;
+        }
+       #cfgd img{
+          border-width: 1px;
+          border-style: solid #dadce1 ;
+          border-radius: 50px;
+        }
+      #cfgd  img:hover{
+        border: 7px solid transparent;
+        transition:border 0.5s ease-in-out 0s;
+        -webkit-box-shadow:7px 13px 25px 5px #2c0707 inset;
+-moz-box-shadow:7px 13px 25px 5px #2c0707 inset;
+box-shadow:7px 13px 25px 5px #2c0707 inset;
+-webkit-box-shadow:7px 13px 25px 5px #000000 ;
+-moz-box-shadow:7px 13px 25px 5px #000000 ;
+box-shadow:7px 13px 25px 5px #000000 ;
+          
+           
+        }
+        .p-2 img{
+          border-width: 1px;
+          border-style: solid;
+          border-radius: 50px;
+
+        }
+        .p-2 img:hover{
+          border: 7px solid transparent;
+        transition:border 0.5s ease-in-out 0s;
+        -webkit-box-shadow:7px 13px 25px 5px #2c0707 inset;
+-moz-box-shadow:7px 13px 25px 5px #2c0707 inset;
+box-shadow:7px 13px 25px 5px #2c0707 inset;
+-webkit-box-shadow:7px 13px 25px 5px #000000 ;
+-moz-box-shadow:7px 13px 25px 5px #000000 ;
+box-shadow:7px 13px 25px 5px #000000 ;
+          
+
+        }
+
+         
     </style>
 
     <!-- navbar -->
 
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex ">
+    <nav  class="navbar navbar-expand-sm  navigationel navbar-dark  d-flex fixed-top  ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Getflix</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -205,16 +271,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0  align-self-end">
                         <li class="nav-item <?php toogle1() ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
+                                <div class="modal-dialog " role="document">
+                                    <div class="modal-content text-white bg-dark ">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Deconnexion</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
-                                            <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> , vous voulez vraiment partir ?!</h1>
+                                        <div class="modal-body ">
+                                            <h1>Cher <?php echo pre($_SESSION['firstname']); ?> ,  voulez-vous vraiment nous quitter ?!</h1>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
@@ -229,9 +295,7 @@
                         <li class="nav-item <?php toogle1() ?>">
                             <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px" /></a>
                         </li>
-                        <li>
-
-                        </li>
+                        <?php if( $_SESSION['id']){echo ' <li class="text-white bold"> Bonjour '. $_SESSION['firstname'] .' !</li>' ;} ?>  
                     </ul>
                 </div>
                 <?php require "index1.php"; ?>
@@ -295,31 +359,41 @@
     // ------------------FIN DEUXIEME TABLEAU  --------------------------------------------------------------------------
     ?>
     <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
-    <div id="carousel">
+    <div id="carousel" class="">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
 
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 <!-- ---------------- ----------------------BOUCLE BOUTON DE CHAQUE IMG DS CAROUSEL -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
                 <?php for ($i = 3; $i <= 19; $i++) {
-                    echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . ' " aria-label="Slide ' . $i . '" ></button>';
+                    echo '<button class="bg-transparent" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . ' " aria-label="Slide ' . $i . '" ></button>';
                 } ?>
 
 
             </div> <!-- ----------------DEBUT ----------------------CAROUSEL-----------------------------------------------------------------------------------------------------------------------------------------  -->
 
             <div class="carousel-inner " style"margin=auto ">
-    <div class=" carousel-item active ">
-    <div class=" d-flex flex-row ">
+    <div class=" carousel-item active  ">
+    <div id="cfgd" class=" d-flex flex-row ">
        <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
+            <?php 
+            $rand = rand(0,8);
+            $rande = rand(0,8);
+            $randee = rand(0,8);
+            $randeee = rand(0,8);
+            for ($i=19; $i > 10; $i--) { 
 
-    <img  class=" p-2 "  src=" <?php echo $urlimg . '' . $moviesArray2[rand(0, 19)]->poster_path; ?>" alt="jkl">
-                <img class="p-2 " src="<?php echo $urlimg . '' . $moviesArray2[rand(0, 19)]->poster_path; ?>" alt="jkl">
-                <img class="p-2  " src="<?php echo $urlimg . '' . $moviesArray2[rand(0, 19)]->poster_path; ?>" alt="jkl">
-                <img class="p-2  " src="<?php echo $urlimg . '' . $moviesArray2[rand(0, 19)]->poster_path; ?>" alt="jkl">
+              echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $rand]->id.'"><img   src="'. $urlimg . '' . $moviesArray2[$i-$rand]->poster_path.'" alt="jkl"></div>'; 
+              echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $rande]->id.'"><img    src="'. $urlimg . '' . $moviesArray2[$i-$rande]->poster_path.'" alt="jkl"></div>'; 
+              echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $randee]->id.'"><img   src="'. $urlimg . '' . $moviesArray2[$i-$randee]->poster_path.'" alt="jkl"></div>'; 
+              echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $randeee]->id.'"><img    src="'. $urlimg . '' . $moviesArray2[$i-$randeee]->poster_path.'" alt="jkl"></div>'; 
+              echo '<img  class=" p-2 "  src="'. $urlimg . '' . $moviesArray[$i-$rand]->poster_path.'" alt="jkl">';
+            }
+            ?>
+
                 <!-- -------------------------FIN-------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
             </div>
@@ -328,19 +402,21 @@
 
 
         <?php
-        for ($i = 0; $i <= 9; $i++) {
+        for ($i = 0; $i <= 20; $i++) {
 
         ?> <?php echo '<div class="carousel-item   " id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
             <div class="d-flex flex-row ">
-                <div class=" p-2  "> <img src="<?php echo $urlimg . '' . $moviesArray[$i + 5]->poster_path; ?>" alt="jkl"> </div>
-                <!-- <div class="p-2 ">    <img src="<?php echo $urlimg . '' . $moviesArra2[$i + 6]->poster_path; ?>" alt="jkl1"></div>  -->
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 8]->poster_path; ?>" alt="jkl2"></div>
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 10]->poster_path; ?>" alt="jkl3"></div>
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 4]->poster_path; ?>" alt="jkl4"></div>
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 3]->poster_path; ?>" alt="jkl5"></div>
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 2]->poster_path; ?>" alt="jkl6"></div>
-                <div class="p-2 "> <img src="<?php echo $urlimg . '' . $moviesArray2[$i + 1]->poster_path; ?>" alt="jkl7"></div>
-            </div>
+                
+            
+
+ 
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i + 8]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 8]->poster_path; ?>" alt="jkl2"></div>
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i + 10]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 10]->poster_path; ?>" alt="jkl3"></div>
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i + 4]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 4]->poster_path; ?>" alt="jkl4"></div>
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i + 3]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 3]->poster_path; ?>" alt="jkl5"></div>
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i + 2]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 2]->poster_path; ?>" alt="jkl6"></div>
+                <div class="p-2 " onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i+ 1]->id; ?>"> <img  src="<?php echo $urlimg . '' . $moviesArray[$i + 1]->poster_path; ?>" alt="jkl7"></div>
+            </div> 
 
         <?php echo '</div>';
         } ?>
@@ -382,14 +458,14 @@
 
         ?> <?php echo '<div class="movie" id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
 
-            <img src="<?php echo $urlimg . '' . $moviesArray[$i]->poster_path; ?>" alt="èoèèèç">
-            <div class="movie-info">
+            <img  src="<?php echo $urlimg . '' . $moviesArray[$i]->poster_path; ?>" alt="èoèèèç">
+            <div class="movie-info ">
 
                 <h3><?php echo  $moviesArray[$i]->original_title; ?> </h3>
                 <span class=" "><?php echo  $moviesArray[$i]->vote_average; ?> </span>
             </div>
 
-            <div class="   overview  bg-success  rounded text-light">
+            <div class="   overview  bg-dark  rounded text-light">
 
                 <h3>Résumé</h3>
                 <?php echo  ' ' . $moviesArray[$i]->overview; ?>
@@ -500,20 +576,20 @@ document.getElementById("search-button").addEventListener('keyup', (eve) =>{
         //creation de la classe
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-                <img src="${poster_path? IMG_URL + poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+                <img  src="${poster_path? IMG_URL + poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
                 <div class="movie-info">
                 
                     <h3>${title}</h3>
                     <span class="bg-${getColor(vote_average)}">${vote_average}</span>
                 </div>
-                ${original_language}
-                <div class="overview  bg-success  rounded text-light">
+               
+                <div class="overview  bg-dark rounded text-light">
                 
                     <h3>Résumé</h3>
                     ${overview}
                     <br/> 
                   
-                    <button class="know-more" onclick="clic('${id}')" id="${id}">  Know More</button> <br/> 
+                    <button class="know-more " onclick="clic('${id}')" id="${id}">  Know More</button> <br/> 
                     
                 </div>
             
@@ -553,7 +629,7 @@ function getColor(vote){
     return'danger';
   }
 };
-
+ 
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
