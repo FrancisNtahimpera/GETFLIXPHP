@@ -3,7 +3,7 @@ require "./include/clientinfo.php";
 require "./include/profilModification.php";
 require "./include/functions.php";
 notPass();
-session_start(); 
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

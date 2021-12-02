@@ -48,8 +48,8 @@ function notPass()
 
 function admin()
 {
-    if (isset($_SESSION['email']) == "admin@admin.com") {
-        echo $mes = "<script type='text/javascript'>alert('WELCOM ADMIN') </script>";
+    if ($_SESSION['email'] != "admin@admin.com") {
+        echo $mes = "echo '<script type='text/javascript'>alert('You dont have any acces'); window.location.href = '../login.php'; </script>";
     }
 }
 
