@@ -213,15 +213,17 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">hey nom de l'utilisateur Voulez-vous vraiment nous quitter ?</div>
+                                        <div class="modal-body">
+                                            <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> , vous voulez vraiment partir ?!</h1>
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-                                            <button type="button" class="btn btn-primary">Se deconnecter</button>
+                                            <button type="button" class="btn btn-primary" href=""><a href="./include/logout.php" class="text-white">Se déconnecter</a></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="nav-link active" aria-current="page" href=""><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
+                            <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
                         </li>
 
                         <li class="nav-item <?php toogle1() ?>">
@@ -355,6 +357,21 @@
         </a>
     </div>
     </div>
+
+    <!--                                               CHANGEMENT BORIS  -->
+    <script type='text/javascript'>
+        function test4() {
+
+
+
+            alert('You  must be logged ! ');
+
+        }
+    </script>
+
+
+
+
     <div id="main">
         <!-- --------------------------------------BOUCEL AFFICHAGE FICHES DES FILM -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
@@ -372,14 +389,14 @@
                 <span class=" "><?php echo  $moviesArray[$i]->vote_average; ?> </span>
             </div>
 
-            <div class="overview  bg-success  rounded text-light">
+            <div class="   overview  bg-success  rounded text-light">
 
                 <h3>Résumé</h3>
                 <?php echo  ' ' . $moviesArray[$i]->overview; ?>
 
                 <br />
-                <div class="dateRelease"> </div>
-                <button class="know-more btn btn-dark" onClick="openNav() , clic(this.id) " id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?></button>
+                <div class=" dateRelease"> </div>
+                <?php toogle3() ?>
             </div>
     </div>
 <?php };
@@ -402,11 +419,20 @@
     let idFIlms;
 
     function clic(idFIlms) {
-        document.getElementById('popo').innerHTML = "affichage du idFIlms :" + idFIlms + " ";
+        document.getElementById('popo').innerHTML = " https://www.youtube.com/watch?v=" + idFIlms;
         let films = document.createElement('div class="text-white');
         films.innerHTML = " ";
 
 
+
+    }
+
+    function openNav(movie) {
+        let id = movie.id;
+        fetch("https://api.themoviedb.org/3/movie/" + IdFIlms + '/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c').then(res => res.json()).then(videoData => {
+            console.log(videoData);
+
+        })
     }
 
     // JAVASCRIPT---------- OverLAY VIDEOS TEST-----------------------------------------------------------------------------------------------------------------  -->
