@@ -1,3 +1,4 @@
+
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
 <?php require "./include/clientinfo.php" ?>
@@ -11,18 +12,6 @@
 <body>
     <style>
 
-/* 
-css logo getflix  */
-
-
- 
-
-
-
-
-/* 
-
-fin css logo GETFLIX */
         #main {
             display: flex;
             flex-wrap: wrap;
@@ -225,6 +214,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
           border-width: 1px;
           border-style: solid;
           border-radius: 50px;
+          transform:border 
 
         }
         .p-2 img:hover{
@@ -238,6 +228,9 @@ box-shadow:7px 13px 25px 5px #2c0707 inset;
 box-shadow:7px 13px 25px 5px #000000 ;
           
 
+        }
+        #carousel{
+          margin-top: 100px;
         }
 
          
@@ -374,7 +367,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
     // ------------------FIN DEUXIEME TABLEAU  --------------------------------------------------------------------------
     ?>
     <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
-    <div id="carousel container-fluid" class="">
+    <div id="carousel" class="container-fluid">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
 
@@ -656,5 +649,4 @@ function getColor(vote){
 
 
 </body>
-
 </html>

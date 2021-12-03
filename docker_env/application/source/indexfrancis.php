@@ -1,3 +1,7 @@
+<?php require "./include/signin.php" ?>
+<?php require "./include/signup.php" ?>
+<?php require "./include/clientinfo.php" ?>
+<?php require "./include/functions.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
@@ -62,7 +66,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #fff;
+            background: rgb(63, 94, 251);
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
             padding: 1rem;
             max-height: 100%;
             transform: translateY(+200%);
@@ -79,6 +84,18 @@
             width: 100%;
         }
 
+        ul {
+            list-style-type: none;
+
+        }
+
+        .know-more {
+            background-color: orange;
+            color: white;
+            font-weight: BOLD;
+            padding: auto;
+        }
+
         /* .section{
   padding:4.5rem 0 1.5rem;
 }
@@ -89,8 +106,6 @@
   display: flex;
   align-items:center;
   background:rgb(23,7,0..4,);
-
-
 }
 .conatiner img{
   width:100%;
@@ -98,7 +113,6 @@
   object-fit:cover;
   object-position:center;
   
-
 }
 .swiper-pagination-bullet{
   width: 6px !important;
@@ -106,8 +120,6 @@
   border-radius: 0.2rem !important;
   background : black;
   opacity:1;
-
-
 } */
     </style>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -123,33 +135,17 @@
                             Categorie
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Thriller</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Science Fiction</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
                         </ul>
                     </li>
 
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
+                    <input id="search-button" class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">FIND</button>
                 </form>
                 <ul l class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <li class="nav-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalu">
+                        <div class="modal fade" id="exampleModalu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -168,7 +164,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- SIGN IN SIGN OUT -->
                     </li>
                     <li>
                         <a class="nav-link active" aria-current="page" href="#"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-exit-hotel-wanicon-flat-wanicon.png" width="35px" /></a>
@@ -181,35 +177,13 @@
 
                 </ul>
             </div>
-
+            <ul>
+                <li>
+                    <?php require "index1.php"; ?>
+                </li>
+            </ul>
         </div>
     </nav>
-    <section>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-
-
-            </ol>
-            <div class="carousel-inner" id="kappa">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://fr.web.img6.acsta.net/newsv7/20/06/25/16/09/5678008.jpg" alt="First slide">
-                </div>
-
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </section>
 
 
 
@@ -233,7 +207,7 @@
 
         function getMovies(url) {
             fetch(url).then(res => res.json()).then(data => {
-                showImgMovies(data.results)
+
                 showMovies(data.results);
                 console.log(data.results);
             })
@@ -241,7 +215,6 @@
         //------------------fonction d'affichage des infos de l'API--------------------
         function showMovies(data) {
             main.innerHTML = ' ';
-            //caroussel.innerHtml= ' ';
 
             data.forEach(movie => {
 
@@ -252,17 +225,9 @@
                     vote_average,
                     overview,
                     release_date,
-                    original_language
+                    original_language,
+                    id
                 } = movie;
-
-                // //creation de la div
-                // const imgMovie = document.createElement('div');
-                // //creation de la classe
-                // imgMovie.classList.add('carousel-item');
-                // imgMovie.innerHTML = `<img class="d-block w-100" src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}" alt="First slide">`
-                // main.appendChild(imgMovie);
-
-
 
                 //creation de la div
                 const movieEl = document.createElement('div');
@@ -278,23 +243,117 @@
             ${original_language}
             <div class="overview  bg-success  rounded text-light">
             
-                <h3 >Résumé</h3>
+                <h3>Résumé</h3>
                 ${overview}
                 <br/> 
-                <div class="dateRelease" >${release_date}</div>
-                
+               
+                <button class="know-more" id="${id}">  Know More</button> <br/> 
+                 
             </div>
         
          `;
+                //          document.getElementsById(id).addEvenListener.('click' , () => {
 
+                // console.log(id);
+                // })
 
                 main.appendChild(movieEl);
 
+            })
 
-            });
+        };
 
-        }
+        //fonction recherche sur Submit button
+        const API_GENRE = 'https://api.themoviedb.org/3/search/movie?api_key=92a6e3e8847a6472bbf29ab8fa36f02c&query='
+        let input_search;
+        let url_genre;
 
+        fetch('https://api.themoviedb.org/3/search/movie?api_key=92a6e3e8847a6472bbf29ab8fa36f02c&query=er')
+            .then(res => res.json())
+            .then(res => console.log(res))
+
+        document.getElementById("search-button").addEventListener('keyup', (eve) => {
+            input_search = eve.target.value;
+            url_genre = API_GENRE + input_search;
+
+            if (input_search == "")
+                url_genre = API_URL;
+
+            let main = document.getElementById("main")
+            let child = main.lastElementChild;
+            while (child) {
+                main.removeChild(child);
+                child = main.lastElementChild;
+            }
+
+            console.log(url_genre)
+            fetch(url_genre).then(res => res.json())
+                .then(data => {
+                    list_data = data.results;
+                    list_data.forEach(movie => {
+                        movie_title = movie.title;
+
+                        //afficher le film si il contient une partie de l'input
+                        if (movie_title.toLowerCase().includes(input_search.toLowerCase())) {
+                            const {
+                                title,
+                                poster_path,
+                                vote_average,
+                                overview,
+                                release_date,
+                                original_language,
+                                id
+                            } = movie;
+
+                            //creation de la div
+                            const movieEl = document.createElement('div');
+                            //creation de la classe
+                            movieEl.classList.add('movie');
+                            movieEl.innerHTML = `
+                <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+                <div class="movie-info">
+                
+                    <h3>${title}</h3>
+                    <span class="bg-${getColor(vote_average)}">${vote_average}</span>
+                </div>
+                ${original_language}
+                <div class="overview  bg-success  rounded text-light">
+                
+                    <h3>Résumé</h3>
+                    ${overview}
+                    <br/> 
+                  
+                    <button class="know-more" id="${id}">  Know More</button> <br/> 
+                    
+                </div>
+            
+            `;
+
+
+                            main.appendChild(movieEl);
+
+
+                        }
+
+                        // else{
+                        //   console.log("ID ......" + movie.id)
+                        //   console.log("TITLE .... " + movie.title)
+                        //   let id_movie = movie.id;
+                        //   let parent = document.getElementById(id_movie).parentElement.parentElement;
+                        //   parent.remove();
+                        // }
+
+
+
+                    })
+                })
+            console.log("SEARCH : " + input_search);
+            //toute la div parent à supprimer
+
+
+        })
+
+        /////////////////
         function getColor(vote) {
             if (vote >= 8) {
                 return ' ';
@@ -304,48 +363,59 @@
             } else {
                 return 'danger';
             }
+        };
+
+
+
+        //get movie genre list
+        //const API_KEY = 'api_key=92a6e3e8847a6472bbf29ab8fa36f02c';
+        const URL_GENRE_LIST = 'https://api.themoviedb.org/3/genre/movie/list?' + API_KEY + '&language=en-US';
+        let movie_genre_list = {};
+
+        async function getMovieGenre(url) {
+            return fetch(url).then(res => res.json())
+                .then(data => {
+                    return data.genres;
+                });
         }
 
+        async function getListOfGenre() {
+            const LIST_OF_GENRE = await getMovieGenre(URL_GENRE_LIST)
 
-        //------------------fonction de recuperation des infos de l'API--------------------
+            let list = {}
+            LIST_OF_GENRE.forEach(genre => {
+                let movie_id = genre.id;
+                let movie_genre = genre.name;
 
-        const kappa = document.getElementById('kappa');
-        //------------------fonction d'affichage des images de l'API--------------------
-        function showImgMovies(data) {
-            kappa.innerHTML = ' ';
+                list[movie_id] = movie_genre;
+            })
 
-            data.forEach(img => {
-
-
-                const {
-                    title,
-                    poster_path
-                } = img;
-
-                //creation de la div
-                const imgmovieEl = document.createElement('div');
-                //creation de la classe
-                imgmovieEl.classList.add('carousel-item');
-                imgmovieEl.innerHTML = `
-             <img class="d-block w-100" src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-
-
-            
-              
-            
-        
-         `;
-
-                kappa.appendChild(imgmovieEl);
-
-            });
-
+            return list
         }
 
+        movie_genre_list = getListOfGenre()
 
+        // movie_genre_list.then(function show(res){
+        //   console.log(res)
+        // })
 
-        console.log(data)
+        movie_genre_list.then(function make_listGenre_in_navbar(resultat) {
+
+            //créer le menu déroulant avec la liste des genres
+            for (const ID in resultat) {
+                let ul = document.getElementsByClassName("dropdown-menu")[0];
+                let addGenre = '<li><a class="dropdown-item" href="#" id=' + resultat[ID] + '>' + resultat[ID] + '</a></li> <li><hr class="dropdown-divider"></li>'
+                ul.innerHTML += addGenre;
+            }
+
+            //montre les films avec le genre choisi
+            for (const ID in resultat) {
+                document.getElementById(ID).addEventListener("click", function afficher_film_genre(eve) {
+                    console.log(eve)
+                })
+            }
+        })
     </script>
+</body>
 
-    <!-- LINK TO SWiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+</html>
