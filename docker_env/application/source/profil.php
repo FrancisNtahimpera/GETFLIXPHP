@@ -11,24 +11,72 @@ session_start();
 
 <script type="text/javascript">
     function showForm() {
+
         var text = document.getElementById("formpassword");
+        var text1 = document.getElementById("formname");
+        var text2 = document.getElementById("formemail");
+        var text3 = document.getElementById("formdate");
+
         if (text.style.display === "none") {
             text.style.display = "block";
+            text1.style.display = "none";
+            text2.style.display = "none";
+            text3.style.display = "none";
+
         } else {
             text.style.display = "none";
         }
     }
-</script>
-<script type="text/javascript">
+
+    function showName() {
+
+        var text = document.getElementById("formpassword");
+        var text1 = document.getElementById("formname");
+        var text2 = document.getElementById("formemail");
+        var text3 = document.getElementById("formdate");
+        if (text1.style.display === "none") {
+            text1.style.display = "block";
+            text2.style.display = "none";
+            text.style.display = "none";
+            text3.style.display = "none";
+        } else {
+            text1.style.display = "none";
+        }
+    }
+
     function showEmail() {
-        var text = document.getElementById("formemail");
-        if (text.style.display === "none") {
-            text.style.display = "block";
-        } else {
+
+        var text = document.getElementById("formpassword");
+        var text1 = document.getElementById("formname");
+        var text2 = document.getElementById("formemail");
+        var text3 = document.getElementById("formdate");
+        if (text2.style.display === "none") {
+            text2.style.display = "block";
+            text1.style.display = "none";
             text.style.display = "none";
+            text3.style.display = "none";
+        } else {
+            text2.style.display = "none";
+        }
+    }
+
+    function showdate() {
+
+        var text = document.getElementById("formpassword");
+        var text1 = document.getElementById("formname");
+        var text2 = document.getElementById("formemail");
+        var text3 = document.getElementById("formdate");
+        if (text3.style.display === "none") {
+            text3.style.display = "block";
+            text1.style.display = "none";
+            text2.style.display = "none";
+            text.style.display = "none";
+        } else {
+            text3.style.display = "none";
         }
     }
 </script>
+
 
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -118,15 +166,16 @@ session_start();
 
     <div class="container" id="containerProfil">
 
-        <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> !</h1>
 
 
 
 
 
 
-        <div class="row mt-5 ">
-            <div class="col-12">
+
+        <div class="row mt-2 ">
+            <div class="col-12 d-flex justify-content-between">
+                <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> !</h1>
                 <h1>My Information : </h1>
             </div>
 
@@ -175,34 +224,6 @@ session_start();
                     <h3><?php echo pre($_SESSION['bday']); ?> </h3>
                 </div>
 
-                <!-- <div class="container " id="containerVisa">
-                    <div class="row container-fluid  justify-content-center" id="containerVisa">
-                        <div class="col-sm-12 col-md-12">
-                            <div class="card">
-                                <div class="card-header ">
-                                    <div class="row">
-                                        <div class="col-md-6"> <span>CREDIT/DEBIT CARD PAYMENT</span> </div>
-                                        <div class="col-md-6 text-right" style="margin-top: -5px;"> <img src="https://img.icons8.com/color/36/000000/visa.png"> <img src="https://img.icons8.com/color/36/000000/mastercard.png">  </div>
-                                    </div>
-                                </div>
-                                <div class="card-body col-lg-12" style="height: 350px">
-                                    <div class="form-group"> <label for="cc-number" class="control-label">CARD NUMBER</label> 
-                                        <input id="cc-number" type="tel" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$" required> </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="cc-exp" class="control-label">CARD EXPIRY</label> 
-                                                <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" pattern="(?:0[1-9]|1[0-2])/[0-9]{2}" required> </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="cc-cvc" class="control-label">CARD CVC</label> 
-                                                <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="••••" pattern="^[0-9]{3, 4}$" required> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group"> <label for="numeric" class="control-label">CARD HOLDER NAME</label> <input type="text" class="input-lg form-control"> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
 
 
@@ -212,9 +233,10 @@ session_start();
 
 
         <div class="row mt-5 mb-2 justify-content-around">
-            <div class="col-4"> <button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change password</button></div>
-
-            <div class="col-4"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showEmail()">Change Email</button></div>
+            <div class="col-3"> <button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showForm()">Change password</button></div>
+            <div class="col-3"> <button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showName()"> Change Name </button></div>
+            <div class="col-3"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showEmail()">Change Email</button></div>
+            <div class="col-3"><button class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center" onclick="showdate()"> Change Date & Adresse </button></div>
 
 
 
@@ -277,6 +299,64 @@ session_start();
 
 
         </form>
+
+
+
+        <!--   CHANGE DE NOM -->
+        <form id="formname" name="frmChange" method="post" action="" style="display:none">
+            <div class="row">
+
+                <div class="col-6">
+
+                    <label for="last-name"><b>New first name :</b></label>
+                    <input class="border rounded" type="text" placeholder="New name" name="newname" required>
+                </div>
+                <div class="col-6">
+
+                    <label for="last-name"><b>New last name :</b></label>
+                    <input class="border rounded" type="text" placeholder="New name" name="newlastname" required>
+                </div>
+
+            </div>
+            <div class="col-12"> <button name="submitname" value="Submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center">Confirm Name</button></div>
+        </form>
+
+
+
+
+
+
+        <!--   CHANGE DE adresse et date -->
+        <form id="formdate" name="frmChange" method="post" action="" style="display:none">
+            <div class="row">
+
+                <div class="col-6">
+
+                    <label for="date"><b>New birthday :</b></label>
+                    <input class="border rounded" type="date" placeholder="New date" name="date" required>
+                </div>
+                <div class="col-6">
+
+                    <label for="adresse"><b>New adresse :</b></label>
+                    <input class="border rounded" type="text" placeholder="New adresse" name="adresse" required>
+                </div>
+
+            </div>
+            <div class="col-10"> <button name="submitdate" value="Submit" class="border rounded registerbtn d-grid gap-2 col-12 mx-auto d-flex justify-content-center align-items-center">Confirm Address & Date </button></div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="row">
             <div class="class-12 bg-success">
                 <h3> <?php echo $messagepassword ?> </h3>

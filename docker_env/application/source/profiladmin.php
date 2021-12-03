@@ -1,6 +1,6 @@
 <?php
 require "./include/clientinfo.php";
-require "./include/profilModification.php";
+require "./include/Adminmodification.php";
 require "./include/functions.php";
 
 notPass();
@@ -83,7 +83,7 @@ session_start();
 
 
 
-    <div class="container" id="containerProfil">
+    <div class="container-fluid">
 
         <h1>Hello, <?php echo pre($_SESSION['firstname']); ?> !</h1>
 
@@ -103,7 +103,7 @@ session_start();
 
 
 
-            <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="col-12 ">
                 <?php table() ?>
 
             </div>
