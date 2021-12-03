@@ -10,6 +10,19 @@
 
 <body>
     <style>
+
+/* 
+css logo getflix  */
+
+
+ 
+
+
+
+
+/* 
+
+fin css logo GETFLIX */
         #main {
             display: flex;
             flex-wrap: wrap;
@@ -176,6 +189,8 @@ box-shadow:7px 13px 25px 5px #000000 ;
                 font-size: 40px;
                 top: 15px;
                 right: 35px;
+                
+                
             }
         }
         #carousel{
@@ -191,7 +206,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
         }
        #cfgd img{
           border-width: 1px;
-          border-style: solid #dadce1 ;
+          border-style: solid ;
           border-radius: 50px;
         }
       #cfgd  img:hover{
@@ -359,14 +374,15 @@ box-shadow:7px 13px 25px 5px #000000 ;
     // ------------------FIN DEUXIEME TABLEAU  --------------------------------------------------------------------------
     ?>
     <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
-    <div id="carousel" class="">
+    <div id="carousel container-fluid" class="">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
 
                 <button type="button " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <!-- ---------------- ----------------------BOUCLE BOUTON DE CHAQUE IMG DS CAROUSEL -----------------------------------------------------------------------------------------------------------------------------------------  -->
+
+                <!-- ---------------- ---------------------- BOUCLE BOUTON DE CHAQUE IMG DS CAROUSEL -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
                 <?php for ($i = 3; $i <= 19; $i++) {
                     echo '<button class="bg-transparent" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . ' " aria-label="Slide ' . $i . '" ></button>';
@@ -375,7 +391,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
 
             </div> <!-- ----------------DEBUT ----------------------CAROUSEL-----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-            <div class="carousel-inner " style"margin=auto ">
+            <div class="carousel-inner " style"margin=auto">
     <div class=" carousel-item active  ">
     <div id="cfgd" class=" d-flex flex-row ">
        <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
@@ -390,7 +406,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
               echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $rande]->id.'"><img    src="'. $urlimg . '' . $moviesArray2[$i-$rande]->poster_path.'" alt="jkl"></div>'; 
               echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $randee]->id.'"><img   src="'. $urlimg . '' . $moviesArray2[$i-$randee]->poster_path.'" alt="jkl"></div>'; 
               echo '<div class="p-2 " onClick="clic(this.id)" id="'. $tester = $moviesArray2[$i - $randeee]->id.'"><img    src="'. $urlimg . '' . $moviesArray2[$i-$randeee]->poster_path.'" alt="jkl"></div>'; 
-              echo '<img  class=" p-2 "  src="'. $urlimg . '' . $moviesArray[$i-$rand]->poster_path.'" alt="jkl">';
+              echo '<img   src="'. $urlimg . '' . $moviesArray[$i-$rand]->poster_path.'" alt="jkl">';
             }
             ?>
 
@@ -404,7 +420,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
         <?php
         for ($i = 0; $i <= 20; $i++) {
 
-        ?> <?php echo '<div class="carousel-item   " id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
+        ?> <?php echo '<div class="carousel-item  " id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
             <div class="d-flex flex-row ">
                 
             
@@ -482,7 +498,7 @@ box-shadow:7px 13px 25px 5px #000000 ;
 
 <!-- HTML OverLAY VIDEOS TEST-----------------------------------------------------------------------------------------------------------------  -->
 <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn pt-5" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
         <div id="popo" class="text-white ">
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/fBNz5xF-Kx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
@@ -631,6 +647,8 @@ function getColor(vote){
 };
  
 </script>
+
+ 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
  
