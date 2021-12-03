@@ -237,6 +237,7 @@
 
         #carousel {
             margin-top: 100px;
+            
         }
     </style>
 
@@ -306,10 +307,11 @@
 
                         <li class="nav-item <?php toogle1() ?>">
                             <a class="nav-link" href="profil.php"><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/000000/external-profile-user-interface-wanicon-flat-wanicon.png" width="35px" /></a>
-                        </li>
-                        <?php if ($_SESSION['id']) {
-                            echo ' <li class="text-white bold"> Bonjour ' . $_SESSION['firstname'] . ' !</li>';
+                            <?php if ($_SESSION['id']) {
+                            echo '<div = class"align-self-center"> <li class="text-white bold nav-item align-self-center"> Bonjour ' . $_SESSION['firstname'] . ' !</li></div>';
                         } ?>
+                        </li>
+                        
                     </ul>
                 </div>
                 <?php require "index1.php"; ?>
@@ -373,9 +375,9 @@
     // ------------------FIN DEUXIEME TABLEAU  --------------------------------------------------------------------------
     ?>
     <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
-    <div id="carousel" class="container-fluid">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
+    <div id="carousel" class="container-fluid ">
+        <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+            <div class="carousel-indicators hide">
 
                 <button type="button " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -384,13 +386,13 @@
                 <!-- ---------------- ---------------------- BOUCLE BOUTON DE CHAQUE IMG DS CAROUSEL -----------------------------------------------------------------------------------------------------------------------------------------  -->
 
                 <?php for ($i = 3; $i <= 19; $i++) {
-                    echo '<button class="bg-transparent" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . ' " aria-label="Slide ' . $i . '" ></button>';
+                    echo '<button class="bg-transparent " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . ' " aria-label="Slide ' . $i . '" ></button>';
                 } ?>
 
 
             </div> <!-- ----------------DEBUT ----------------------CAROUSEL-----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-            <div class="carousel-inner " style"margin=auto">
+            <div class="carousel-inner " style="margin=auto">
                 <div class=" carousel-item active  ">
                     <div id="cfgd" class=" d-flex flex-row ">
                         <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
@@ -485,9 +487,11 @@
                     <h3>Résumé</h3>
                     <?php echo  ' ' . $moviesArray[$i]->overview; ?>
 
-                    <br />
+                    <br /> 
                     <div class="dateRelease"> </div>
-                    <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?></button>
+                    <div class="<?php toogle1();?>">
+                    <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?> Watch It</button>
+                    </div>
 
                 </div>
         </div>
@@ -612,7 +616,7 @@
                     ${overview}
                     <br/> 
                   
-                    <button class="know-more " onclick="clic('${id}')" id="${id}">  Know More</button> <br/> 
+                    <button class="know-more btn btn-dark " onclick="clic('${id}')" id="${id}">  Watch It</button> <br/> 
                     
                 </div>
             
