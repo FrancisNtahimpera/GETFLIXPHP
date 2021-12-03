@@ -1,4 +1,3 @@
-
 <?php
 //session_start();
 
@@ -20,4 +19,3 @@ if (mysqli_num_rows($resultat) === 1) {
     $_SESSION['bday'] = $row['bday'];
  
 }
-?>

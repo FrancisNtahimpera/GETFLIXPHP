@@ -1,11 +1,9 @@
 <?php
-//session_start();
+session_start();
 require "connection.php";
 require "clientinfo.php";
 
-
 $emailinvalid = "";
-
 $sql = "SELECT * from users WHERE id='" . $_SESSION["id"] . "'";
 $result = mysqli_query($conn, $sql);
 $test = mysqli_fetch_assoc($result);
