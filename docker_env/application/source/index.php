@@ -392,9 +392,9 @@
 
             </div> <!-- ----------------DEBUT ----------------------CAROUSEL-----------------------------------------------------------------------------------------------------------------------------------------  -->
 
-            <div class="carousel-inner " style="margin=auto">
-                <div class=" carousel-item active  ">
-                    <div id="cfgd" class=" d-flex flex-row ">
+            <div class="carousel-inner  " style="margin=auto">
+                <div class=" carousel-item active ">
+                    <div id="cfgd" class=" d-flex flex-row  ">
                         <!-- ----------------------DEBUT----------------IMAGE CAROUSEL ITEM ACTIVE -----------------------------------------------------------------------------------------------------------------------------------------  -->
                         <?php
                         $rand = rand(0, 8);
@@ -422,7 +422,7 @@
                 for ($i = 0; $i <= 20; $i++) {
 
                 ?> <?php echo '<div class="carousel-item  " id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
-                    <div class="d-flex flex-row ">
+                    <div class="d-flex flex-row <?php toogle1();?>">
 
 
 
@@ -529,7 +529,7 @@
             fetch("http://api.themoviedb.org/3/movie/" + idFIlms + "/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c")
                 .then(res => res.json())
                 .then(videoData => (
-                    document.getElementById("popo").innerHTML = `<iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoData.results[0].key}?autoplay=1&enablejsapi=1&rel=0;modestbranding=1&showsearch=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    document.getElementById("popo").innerHTML = `<div class="<?php toogle1()?>"><iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoData.results[0].key}?autoplay=1&enablejsapi=1&rel=0;modestbranding=1&showsearch=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
                 ))
                 .catch(error => console.log("ERROR"))
 
@@ -548,7 +548,8 @@
             document.getElementById("myNav").style.width = "0%";
             document.getElementById("popo").innerHTML = "";
         }
-
+        // 000webhost logo delete script
+        $(document).ready(function(){ $('body').find('img[alt$="www.000webhost.com"]').remove(); }); 
         //fonction recherche sur Submit button
         const API_KEY = 'api_key=92a6e3e8847a6472bbf29ab8fa36f02c';
         const BASE_URL = 'https://api.themoviedb.org/3/';
