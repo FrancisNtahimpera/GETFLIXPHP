@@ -278,7 +278,7 @@
                 </ul>
                 <form class="d-flex">
                     <input id="search-button" class="form-control p-2" type="search" placeholder="film or series" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">FIND</button>
+                    <!-- <button class="btn btn-outline-success" type="submit">FIND</button> -->
                 </form>
                 <div class=" ml-auto">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0  align-self-end">
@@ -490,7 +490,7 @@
                     <br /> 
                     <div class="dateRelease"> </div>
                     <div class="<?php toogle1();?>">
-                    <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> <?php echo $moviesArray[$i]->id; ?> Watch It</button>
+                    <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>">  Watch It</button>
                     </div>
 
                 </div>
@@ -529,7 +529,7 @@
             fetch("http://api.themoviedb.org/3/movie/" + idFIlms + "/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c")
                 .then(res => res.json())
                 .then(videoData => (
-                    document.getElementById("popo").innerHTML = `<iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoData.results[0].key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                    document.getElementById("popo").innerHTML = `<iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoData.results[0].key}?autoplay=1&enablejsapi=1&rel=0;modestbranding=1&showsearch=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
                 ))
                 .catch(error => console.log("ERROR"))
 
@@ -615,8 +615,9 @@
                     <h3>Résumé</h3>
                     ${overview}
                     <br/> 
-                  
-                    <button class="know-more btn btn-dark " onclick="clic('${id}')" id="${id}">  Watch It</button> <br/> 
+                    <div class = '<?php toogle1(); ?>'>
+                    <button class="know-more btn btn-dark  " onclick="clic('${id}')" id="${id}">  Watch It</button> <br/> 
+                    <div>
                     
                 </div>
             
