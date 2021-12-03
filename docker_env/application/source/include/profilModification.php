@@ -73,28 +73,3 @@ if (isset($_POST['submitemail'])) {
         $message = "Current mail is not correct";
     }
 }
-
-
-
-
-
-/* ADDMIN PANEL */
-
-
-function table()
-{
-    echo '<table>
-    <tr>
-    <td>Forename</td>
-    <td>Surname</td>
-    </tr>';
-    $sql = "SELECT * from table where sequence = '" . $_GET["sequence"] . "' ";
-    $rs = mysql_query($sql, $conn) or die(mysql_error());
-    while ($result = mysql_fetch_array($rs)) {
-        echo '<tr>
-    <td>' . $result["forename"] . '</td>
-    <td>' . $result["surname"] . '</td>
-    </tr>';
-    }
-    echo '</table>';
-}

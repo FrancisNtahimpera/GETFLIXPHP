@@ -72,12 +72,12 @@ if (isset($_POST['submitforgot'])) {
             $mail->send();
             /*    header("Location: ./index#myModal.php"); */
 
-            /*   $forgotmessage = '<script>alert("Mail  as been send ! Check yours SPAM ")</script>'; */
+            $forgotmessage = '<script>alert("Mail  as been send ! Check yours SPAM ")</script>';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
-        /*  $forgotmessage = '<script>alert("Mail not found")</script>'; */
+        $forgotmessage = '<script>alert("Mail not found")</script>';
     }
 }
     //Create an instance; passing `true` enables exceptions

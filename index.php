@@ -178,11 +178,27 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-1">
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categorie
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorie
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Thriller</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Science Fiction</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Horror</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -539,125 +555,6 @@ function getColor(vote){
     return'danger';
   }
 };
-
-
-
-
-
-//get movie genre list
-//const API_KEY = 'api_key=92a6e3e8847a6472bbf29ab8fa36f02c';
-const URL_GENRE_LIST = 'https://api.themoviedb.org/3/genre/movie/list?' + API_KEY + '&language=en-US';
-let movie_genre_list = {};
-
-async function getMovieGenre(url){
-  return fetch(url).then(res => res.json())
-  .then(data => {
-    return data.genres;
-  });
-}
-
-async function getListOfGenre(){
-  const LIST_OF_GENRE = await getMovieGenre(URL_GENRE_LIST)
-
-  let list = {}
-  LIST_OF_GENRE.forEach(genre => {
-    let movie_id = genre.id;
-    let movie_genre = genre.name;
-    
-    list[movie_id] = movie_genre;
-  })
-
-  return list
-}
-
-movie_genre_list =  getListOfGenre()
-
-movie_genre_list.then(function make_listGenre_in_navbar(resultat){
-
-  //créer le menu déroulant avec la liste des genres
-  for(const ID in resultat){
-    let div_dropMenu = document.getElementsByClassName("dropdown-menu")[0];
-    let addGenre = '<a class="dropdown-item" href="#" id='+ resultat[ID] +'>'+ resultat[ID] +'</a> <div class="dropdown-divider"></div>'
-    div_dropMenu.innerHTML += addGenre;
-  }
-
-  const API_GENRE = 'https://api.themoviedb.org/3/discover/movie?api_key=92a6e3e8847a6472bbf29ab8fa36f02c&with_genres='
-
-  //montre les films avec le genre choisi
-  for(const ID in resultat){
-      console.log("ok")
-    document.getElementById(resultat[ID]).addEventListener("click", function afficher_film_genre(eve){
-
-        
-        url_genre = API_GENRE + ID;
-
-        let main = document.getElementById("main")
-        let child = main.lastElementChild;
-        while(child){
-            main.removeChild(child);
-            child = main.lastElementChild;
-        }
-
-        fetch(url_genre).then(res => res.json())
-        .then(data => {
-            console.log("MOVIE " + data)
-            list_data = data.results;
-            console.log(list_data)
-            list_data.forEach(movie =>{
-            
-            movie_title = movie.title;
-
-            //afficher le film si il contient une partie de l'input
-                const {title, poster_path, vote_average, overview, release_date , original_language, id } = movie;
-
-                //creation de la div
-                const movieEl = document.createElement('div');
-                //creation de la classe
-                movieEl.classList.add('movie');
-                movieEl.innerHTML = `
-                        <img src="${poster_path? IMG_URL + poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-                        <div class="movie-info">
-                        
-                            <h3>${title}</h3>
-                            <span class="bg-${getColor(vote_average)}">${vote_average}</span>
-                        </div>
-                        ${original_language}
-                        <div class="overview  bg-success  rounded text-light">
-                        
-                            <h3>Résumé</h3>
-                            ${overview}
-                            <br/> 
-                        
-                            <button class="know-more" onclick="clic('${id}')" id="${id}">  Know More</button> <br/> 
-                            
-                        </div>
-                    
-                    `;
-
-
-            main.appendChild(movieEl);
-
-            
-            
-            
-            // else{
-            //   console.log("ID ......" + movie.id)
-            //   console.log("TITLE .... " + movie.title)
-            //   let id_movie = movie.id;
-            //   let parent = document.getElementById(id_movie).parentElement.parentElement;
-            //   parent.remove();
-            // }
-
-            
-            
-            })
-        })
-    })
-  }
-})
-
-
-
 
 </script>
 
