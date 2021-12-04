@@ -1,14 +1,13 @@
 <?php require "./include/signin.php" ?>
 <?php require "./include/signup.php" ?>
-
 <?php require "./include/functions.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "head.php" ?>
 <link rel="stylesheet" href=" css/style.css">
 <link rel="stylesheet" href="style.css">
-
-<body>
+<?php mute(); ?>
+<body >
     <style>
         #main {
             display: flex;
@@ -377,7 +376,7 @@
     <!-- --------------------------CAROUSEL--------------------------------------------------------------------------------- -->
     <div id="carousel" class="container-fluid ">
         <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
-            <div class="carousel-indicators hide">
+            <div class="carousel-indicators ">
 
                 <button type="button " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -422,6 +421,7 @@
                 for ($i = 0; $i <= 20; $i++) {
 
                 ?> <?php echo '<div class="carousel-item  " id ="' . $moviesArray[$i]->original_title . ' " >'; ?>
+                
                     <div class="d-flex flex-row <?php toogle1();?>">
 
 
@@ -482,7 +482,7 @@
                     <span class=" "><?php echo  $moviesArray[$i]->vote_average; ?> </span>
                 </div>
 
-                <div class="   overview  bg-dark  rounded text-light">
+                <div class="  overview  bg-dark  rounded text-light">
 
                     <h3>Résumé</h3>
                     <?php echo  ' ' . $moviesArray[$i]->overview; ?>
@@ -490,7 +490,7 @@
                     <br /> 
                     <div class="dateRelease"> </div>
                     <div class="<?php toogle1();?>">
-                    <button class="know-more btn btn-dark" onClick="clic(this.id)" id="<?php echo  $tester = $moviesArray[$i]->id; ?>">  Watch It</button>
+                    <button class="know-more btn btn-dark" onClick="clic(this.id);" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> Watch It</button>
                     </div>
 
                 </div>
@@ -500,21 +500,66 @@
     </div>
 
     <!-- HTML OverLAY VIDEOS TEST-----------------------------------------------------------------------------------------------------------------  -->
-    <div id="myNav" class="overlay">
+    <div id="myNav" class="overlay <?php toogle1()?>">
         <a href="javascript:void(0)" class="closebtn pt-5" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <div id="popo" class="text-white ">
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/fBNz5xF-Kx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
+        </div>
+        <div id="popo" class="text-white <?php toogle1()?>">
+                
+        </div>
+        <div class="card<?php toogle1()?>  bg-transparent text-light" id="card" >
+            <div class="row d-flex justify-content-center bg-transparent text-light <?php toogle1()?>">
+                <div class="col-6 bg-transparent text-light justify-content-center">
+                    <div class="comment-box ml-2 bg-transparent text-light">
+                        <div class="rating justify-content-center">
+                            <div class="comment-area justify-content-center"> <textarea id="text" class="form-control bg-transparent text-light" placeholder="What is your view <?php echo pre($_SESSION['firstname']);?>?" rows="2" value=""></textarea> </div>
+                            <div class="comment-btns mt-2 justify-content-center">
+                                <div class="row justify-content-center">
+                                <div class="col-6 justify-content-center ">
+                                <div class="justify-content-center text-align-center d-flex"> <button onClick="addC(this.id)" id="<?php echo $moviesArray[$i]->id; ?>" class="know-more btn btn-dark justify-content-center buttonadd">Add Your Comment <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </div>
 
     <script>
         // -----------------------creation du liens du trailers -------------------------------------------------------------
         let idFIlms;
-        let filminfos = "http://api.themoviedb.org/3/movie/" + idFIlms + "/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
+        let filminfos = "https://api.themoviedb.org/3/movie/"+idFIlms+"/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c";
+        
 
+        function addC(idFIlms) {
+                let myNav = document.getElementById("myNav");
+                const date = new Date();
+                const commentDate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}` ;
+                let section = document.getElementById("card");
+                let textarea = document.getElementById("text");
+                let text = textarea.value;
+                let userComment = document.createElement("div");
+                let wrapper = document.createElement("div");
+                wrapper.setAttribute('id', '${idFIlms}');
+                wrapper.classList.add( "d-flex", "justify-content-center", "text-center", "row", "bg-transparent", "m-2", "text-light");
+                let comDiv = document.createElement("div");
+                let comSpan = document.createElement("span");
+                comSpan.classList.add("text-primary", "d-flex", "justify-content-center", );
+                comSpan.innerHTML = "@<?php echo pre($_SESSION['firstname']);?>" + "&nbsp" + commentDate;
+                userComment.classList.add( "d-flex", "justify-content-center", "text-center", "bg-transparent", "border", "rounded", "border-dark", "m-2", "text-light");
+                comDiv.innerHTML = text   ;
+                comDiv.appendChild(comSpan);
+                userComment.appendChild(comDiv);
+                wrapper.appendChild(userComment);
+                section.appendChild(wrapper);
+                myNav.appendChild(section);
+                document.querySelector("buttonadd").addEventListener("click", function () {     
+                textarea.value = "";
+                });
+            }
 
 
 
@@ -525,13 +570,32 @@
 
 
         function clic(idFIlms) {
+          
             document.getElementById("myNav").style.width = "100%";
+            let navigation = document.getElementById("myNav").style.width;
+
             fetch("http://api.themoviedb.org/3/movie/" + idFIlms + "/videos?api_key=92a6e3e8847a6472bbf29ab8fa36f02c")
                 .then(res => res.json())
                 .then(videoData => (
-                    document.getElementById("popo").innerHTML = `<div class="<?php toogle1()?>"><iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoData.results[0].key}?autoplay=1&enablejsapi=1&rel=0;modestbranding=1&showsearch=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
+                    document.getElementById("popo").innerHTML = `
+                   
+                    
+                    
+                    <div class="<?php toogle1()?> d-flex justify-content-center bg-transparent text-light"><iframe width="850" height="530" id="youtube" src="https://www.youtube.com/embed/${videoData.results[0].key}?autoplay=1&enablejsapi=1&rel=0;modestbranding=1&showsearch=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+                    </div>
+
+                   
+                    `
+                    
+                    
                 ))
-                .catch(error => console.log("ERROR"))
+                .catch(error => console.log("ERROR"));
+
+                console.log(videoData);
+
+               
+                
+           
 
 
 
@@ -617,6 +681,7 @@
                     ${overview}
                     <br/> 
                     <div class = '<?php toogle1(); ?>'>
+                    
                     <button class="know-more btn btn-dark  " onclick="clic('${id}')" id="${id}">  Watch It</button> <br/> 
                     <div>
                     

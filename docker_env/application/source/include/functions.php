@@ -17,6 +17,15 @@ function toogle1($var = '')
     }
 };
 
+function mute()
+{
+
+    if (!isset($_SESSION['email'])) {
+        $var = '<script>var yy = document.getElementById("youtube"); yy.muted = true;</script>';
+        echo $var;
+    }
+};
+
 function toogle2($var = '')
 {
 
@@ -62,3 +71,5 @@ function pre($value)
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
+
+
