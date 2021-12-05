@@ -73,3 +73,6 @@ function pre($value)
 }
 
 
+function comment($id) {
+    header("Location: ../index.php?url=$id");
+}

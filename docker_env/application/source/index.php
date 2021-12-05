@@ -489,7 +489,7 @@
 
                     <br /> 
                     <div class="dateRelease"> </div>
-                    <div class="<?php toogle1();?>">
+                    <div class="<?php toogle1(); comment($tester);?>">
                     <button class="know-more btn btn-dark" onClick="clic(this.id);" id="<?php echo  $tester = $moviesArray[$i]->id; ?>"> Watch It</button>
                     </div>
 
